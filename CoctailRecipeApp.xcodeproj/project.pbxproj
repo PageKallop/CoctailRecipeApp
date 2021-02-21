@@ -10,7 +10,6 @@
 		C0F8FAB125E02145006CAFE3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F8FAB025E02145006CAFE3 /* AppDelegate.swift */; };
 		C0F8FAB325E02145006CAFE3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F8FAB225E02145006CAFE3 /* SceneDelegate.swift */; };
 		C0F8FAB525E02145006CAFE3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F8FAB425E02145006CAFE3 /* ViewController.swift */; };
-		C0F8FAB825E02145006CAFE3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0F8FAB625E02145006CAFE3 /* Main.storyboard */; };
 		C0F8FABB25E02145006CAFE3 /* CoctailRecipeApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C0F8FAB925E02145006CAFE3 /* CoctailRecipeApp.xcdatamodeld */; };
 		C0F8FABD25E02145006CAFE3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C0F8FABC25E02145006CAFE3 /* Assets.xcassets */; };
 		C0F8FAC025E02145006CAFE3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0F8FABE25E02145006CAFE3 /* LaunchScreen.storyboard */; };
@@ -21,7 +20,6 @@
 		C0F8FAB025E02145006CAFE3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C0F8FAB225E02145006CAFE3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		C0F8FAB425E02145006CAFE3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		C0F8FAB725E02145006CAFE3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C0F8FABA25E02145006CAFE3 /* CoctailRecipeApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoctailRecipeApp.xcdatamodel; sourceTree = "<group>"; };
 		C0F8FABC25E02145006CAFE3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C0F8FABF25E02145006CAFE3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -61,7 +59,6 @@
 				C0F8FAB025E02145006CAFE3 /* AppDelegate.swift */,
 				C0F8FAB225E02145006CAFE3 /* SceneDelegate.swift */,
 				C0F8FAB425E02145006CAFE3 /* ViewController.swift */,
-				C0F8FAB625E02145006CAFE3 /* Main.storyboard */,
 				C0F8FABC25E02145006CAFE3 /* Assets.xcassets */,
 				C0F8FABE25E02145006CAFE3 /* LaunchScreen.storyboard */,
 				C0F8FAC125E02145006CAFE3 /* Info.plist */,
@@ -129,7 +126,6 @@
 			files = (
 				C0F8FAC025E02145006CAFE3 /* LaunchScreen.storyboard in Resources */,
 				C0F8FABD25E02145006CAFE3 /* Assets.xcassets in Resources */,
-				C0F8FAB825E02145006CAFE3 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -150,14 +146,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		C0F8FAB625E02145006CAFE3 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				C0F8FAB725E02145006CAFE3 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		C0F8FABE25E02145006CAFE3 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
