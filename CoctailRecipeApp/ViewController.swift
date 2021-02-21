@@ -27,10 +27,14 @@ class ViewController: UIViewController  {
     }()
     
     let findButton : UIButton = {
-        let findButton = UIButton(frame: CGRect(x: 100, y: 100, width: 100, height: 50))
+        let findButton = UIButton(frame: CGRect(x: 100, y: 100, width: 130, height: 75))
         findButton.backgroundColor = UIColor(red: 240/255, green: 230/255, blue: 140/255, alpha: 0.5)
-        findButton.setTitle("Mixology", for: .normal)
+        findButton.setTitle("Mixologist", for: .normal)
+        findButton.titleLabel?.font = UIFont(name: "Thonburi-Bold", size: 15)
+        findButton.setTitleColor(UIColor.black, for: .normal)
+        findButton.layer.cornerRadius = 30
         findButton.addTarget(self, action: #selector(findButtonAction(sender:)), for: .touchUpInside)
+        findButton.translatesAutoresizingMaskIntoConstraints = false
         
         return findButton
     }()
@@ -75,12 +79,16 @@ class ViewController: UIViewController  {
         
         
         bottomContainerView.addSubview(searchTextField)
-        searchTextField.topAnchor.constraint(equalTo: bottomContainerView.topAnchor, constant: 250).isActive = true
+        searchTextField.topAnchor.constraint(equalTo: bottomContainerView.topAnchor, constant: 100).isActive = true
         searchTextField.leadingAnchor.constraint(equalTo: bottomContainerView.leadingAnchor,constant: 15).isActive = true
-        searchTextField.bottomAnchor.constraint(equalTo: bottomContainerView.bottomAnchor,constant: -150).isActive = true
+        searchTextField.bottomAnchor.constraint(equalTo: bottomContainerView.bottomAnchor,constant: -300).isActive = true
         searchTextField.trailingAnchor.constraint(equalTo: bottomContainerView.trailingAnchor, constant: -100).isActive = true
         
         bottomContainerView.addSubview(findButton)
+        findButton.topAnchor.constraint(equalTo: searchTextField.bottomAnchor, constant: 30).isActive = true
+        findButton.leadingAnchor.constraint(equalTo: bottomContainerView.leadingAnchor, constant: 100).isActive = true
+        findButton.bottomAnchor.constraint(equalTo: bottomContainerView.bottomAnchor, constant: -210).isActive = true
+        findButton.trailingAnchor.constraint(equalTo: bottomContainerView.trailingAnchor,constant: -50).isActive = true
     }
 
 }
