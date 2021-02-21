@@ -6,22 +6,22 @@
 //
 
 import UIKit
+import SwiftUI
 
 class ViewController: UIViewController  {
+    
+    let vc = UIHostingController(rootView: Text("Hello"))
 
     let searchTextField : UITextField = {
       let searchTextField = UITextField()
         searchTextField.placeholder = "Find Your Coctail..."
         searchTextField.borderStyle = .roundedRect
-//        searchTextField.layer.cornerRadius = searchTextField.frame.size.height / 2
-//        searchTextField.layer.borderWidth = 0.80
-//        searchTextField.layer.borderColor = UIColor.white.cgColor
         searchTextField.translatesAutoresizingMaskIntoConstraints = false
         searchTextField.layer.shadowOpacity = 1
         searchTextField.layer.shadowRadius = 3.0
         searchTextField.layer.shadowOffset = CGSize.zero
         searchTextField.layer.shadowColor = UIColor.black.cgColor
-        let paddingView: UIView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: 35))
+        let paddingView: UIView = UIView(frame: CGRect(x: 0, y: 0, width: 5, height: 20))
         searchTextField.leftView = paddingView
         searchTextField.rightView = paddingView
         searchTextField.leftViewMode = UITextField.ViewMode.always
@@ -54,13 +54,11 @@ class ViewController: UIViewController  {
         containerView.addSubview(searchTextField)
         searchTextField.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 200).isActive = true
         searchTextField.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 15).isActive = true
-        searchTextField.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -15).isActive = true
+        searchTextField.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -200).isActive = true
         searchTextField.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -200).isActive = true
     
 
     }
-
-
 
 }
 
