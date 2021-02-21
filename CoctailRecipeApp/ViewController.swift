@@ -6,40 +6,51 @@
 //
 
 import UIKit
-import SwiftUI
+
 
 class ViewController: UIViewController  {
     
-    let vc = UIHostingController(rootView: Text("Hello"))
-
+    
+    
     let searchTextField : UITextField = {
       let searchTextField = UITextField()
         searchTextField.placeholder = "Find Your Coctail..."
         searchTextField.borderStyle = .roundedRect
         searchTextField.translatesAutoresizingMaskIntoConstraints = false
-        searchTextField.layer.shadowOpacity = 1
-        searchTextField.layer.shadowRadius = 3.0
-        searchTextField.layer.shadowOffset = CGSize.zero
-        searchTextField.layer.shadowColor = UIColor.black.cgColor
         let paddingView: UIView = UIView(frame: CGRect(x: 0, y: 0, width: 5, height: 20))
         searchTextField.leftView = paddingView
         searchTextField.rightView = paddingView
         searchTextField.leftViewMode = UITextField.ViewMode.always
         searchTextField.rightViewMode = UITextField.ViewMode.always
-        searchTextField.layer.borderColor = UIColor.black.withAlphaComponent(0.25).cgColor
-        searchTextField.layer.shadowOffset = CGSize(width: 0, height: 3)
-        searchTextField.layer.shadowColor = UIColor.black.cgColor
+        searchTextField.backgroundColor = UIColor(red: 240/255, green: 230/255, blue: 140/255, alpha: 0.5)
         return searchTextField
     }()
+    
+    let findButton : UIButton = {
+        let findButton = UIButton(frame: CGRect(x: 100, y: 100, width: 100, height: 50))
+        findButton.backgroundColor = UIColor(red: 240/255, green: 230/255, blue: 140/255, alpha: 0.5)
+        findButton.setTitle("Mixology", for: .normal)
+        findButton.addTarget(self, action: #selector(findButtonAction(sender:)), for: .touchUpInside)
+        
+        return findButton
+    }()
 
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = UIColor(named: "lightBlue")
+        view.backgroundColor = UIColor.white
+   
+        self.view.addSubview(searchTextField)
         topLayout()
+        bottomLayout()
+        
 
     }
     
-    
+    @objc func findButtonAction(sender: UIButton!) {
+        print("pressed")
+    }
+  
     func topLayout() {
        
         let containerView = UIView()
@@ -50,15 +61,34 @@ class ViewController: UIViewController  {
         containerView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         containerView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
         containerView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.5).isActive = true
-        
-        containerView.addSubview(searchTextField)
-        searchTextField.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 200).isActive = true
-        searchTextField.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 15).isActive = true
-        searchTextField.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -200).isActive = true
-        searchTextField.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -200).isActive = true
-    
 
+    }
+    
+    func bottomLayout() {
+        let bottomContainerView = UIView()
+        view.addSubview(bottomContainerView)
+        bottomContainerView.translatesAutoresizingMaskIntoConstraints = false
+        bottomContainerView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        bottomContainerView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        bottomContainerView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        bottomContainerView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.5).isActive = true
+        
+        
+        bottomContainerView.addSubview(searchTextField)
+        searchTextField.topAnchor.constraint(equalTo: bottomContainerView.topAnchor, constant: 250).isActive = true
+        searchTextField.leadingAnchor.constraint(equalTo: bottomContainerView.leadingAnchor,constant: 15).isActive = true
+        searchTextField.bottomAnchor.constraint(equalTo: bottomContainerView.bottomAnchor,constant: -150).isActive = true
+        searchTextField.trailingAnchor.constraint(equalTo: bottomContainerView.trailingAnchor, constant: -100).isActive = true
+        
+        bottomContainerView.addSubview(findButton)
     }
 
 }
+
+
+
+
+
+
+
 
