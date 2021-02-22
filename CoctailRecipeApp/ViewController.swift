@@ -10,9 +10,10 @@ import UIKit
 
 class ViewController: UIViewController, UIScrollViewDelegate {
     
+   
+    let imageOne = UIImage(named: "shot")
     
     
-    let stackView = UIStackView()
     
     let scrollView : UIScrollView = {
         let scrollView = UIScrollView()
@@ -59,6 +60,7 @@ class ViewController: UIViewController, UIScrollViewDelegate {
         self.view.addSubview(searchTextField)
         topLayout()
         bottomLayout()
+     
         
 
     }
@@ -84,18 +86,17 @@ class ViewController: UIViewController, UIScrollViewDelegate {
         scrollView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor).isActive = true
         scrollView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor).isActive = true
         scrollView.bottomAnchor.constraint(equalTo: containerView.centerYAnchor).isActive = true
+        scrollView.contentSize = CGSize(width: 200, height: 200)
         
-//        scrollView.addSubview(stackView)
-//        stackView.translatesAutoresizingMaskIntoConstraints = false
-//        stackView.axis = .vertical
-//        stackView.spacing = 10
-//        stackView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor).isActive = true
-//        stackView.topAnchor.constraint(equalTo: scrollView.topAnchor).isActive = true
-//        stackView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor).isActive = true
-//        stackView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor).isActive = true
-//        stackView.backgroundColor = .white
-
-    }
+        let oneView = UIView()
+        oneView.frame = CGRect(x: 0, y: 0, width: 200, height: 200)
+        oneView.backgroundColor = .red
+        oneView.addSubview(imageOne!)
+        scrollView.addSubview(oneView)
+        
+ 
+        
+}
     
     func bottomLayout() {
         let bottomContainerView = UIView()
