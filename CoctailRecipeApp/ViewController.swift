@@ -11,8 +11,21 @@ import UIKit
 class ViewController: UIViewController, UIScrollViewDelegate {
     
    
-    let imageOne = UIImage(named: "shot")
+
+    let imageView = UIImageView(image: #imageLiteral(resourceName: "shot"))
+    let imageView1 = UIImageView(image: #imageLiteral(resourceName: "shot"))
+    let imageView2 = UIImageView(image: #imageLiteral(resourceName: "shot"))
     
+    lazy var stackView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.axis = .horizontal
+        stackView.spacing = 15
+        stackView.alignment = .fill
+        stackView.distribution = .fillEqually
+        [imageView, imageView1, imageView2].forEach { stackView.addSubview($0)
+        }
+            return stackView
+    }()
     
     
     let scrollView : UIScrollView = {
@@ -87,15 +100,8 @@ class ViewController: UIViewController, UIScrollViewDelegate {
         scrollView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor).isActive = true
         scrollView.bottomAnchor.constraint(equalTo: containerView.centerYAnchor).isActive = true
         scrollView.contentSize = CGSize(width: 200, height: 200)
-        
-        let oneView = UIView()
-        oneView.frame = CGRect(x: 0, y: 0, width: 200, height: 200)
-        oneView.backgroundColor = .red
-        oneView.addSubview(imageOne!)
-        scrollView.addSubview(oneView)
-        
- 
-        
+        scrollView.addSubview(stackView)
+     
 }
     
     func bottomLayout() {
