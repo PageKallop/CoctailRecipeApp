@@ -13,12 +13,12 @@ class ViewController: UIViewController, UIScrollViewDelegate {
    
 
     let imageView = UIImageView(image: #imageLiteral(resourceName: "shot"))
-    let imageView1 = UIImageView(image: #imageLiteral(resourceName: "shot"))
-    let imageView2 = UIImageView(image: #imageLiteral(resourceName: "shot"))
+    let imageView1 = UIImageView(image: #imageLiteral(resourceName: "cup"))
+    let imageView2 = UIImageView(image: #imageLiteral(resourceName: "micboy"))
     
     lazy var stackView: UIStackView = {
         let stackView = UIStackView()
-        stackView.axis = .horizontal
+        stackView.axis = .vertical
         stackView.spacing = 15
         stackView.alignment = .fill
         stackView.distribution = .fillEqually
@@ -99,7 +99,7 @@ class ViewController: UIViewController, UIScrollViewDelegate {
         scrollView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor).isActive = true
         scrollView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor).isActive = true
         scrollView.bottomAnchor.constraint(equalTo: containerView.centerYAnchor).isActive = true
-        scrollView.contentSize = CGSize(width: 200, height: 200)
+        scrollView.contentSize = CGSize(width: 200, height: 1100)
         scrollView.addSubview(stackView)
      
 }
