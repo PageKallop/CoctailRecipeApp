@@ -11,18 +11,37 @@ import UIKit
 class ViewController: UIViewController, UIScrollViewDelegate {
     
    
-
+    let imageView: UIImageView = {
     let imageView = UIImageView(image: #imageLiteral(resourceName: "shot"))
-    let imageView1 = UIImageView(image: #imageLiteral(resourceName: "cup"))
-    let imageView2 = UIImageView(image: #imageLiteral(resourceName: "micboy"))
+        imageView.frame = CGRect(x: 10, y: 10, width: 100, height: 100)
+//        imageView.contentMode = .scaleToFill
+        return imageView
+        
+    }()
+    let imageView1: UIImageView = {
+        let imageView1 = UIImageView(image: #imageLiteral(resourceName: "cup"))
+        imageView1.frame = CGRect(x: 10, y: 10, width: 100, height: 100)
+//        imageView1.contentMode = .scaleToFill
+        return imageView1
+        
+    }()
+    let imageView2: UIImageView = {
+        let imageView2 = UIImageView(image: #imageLiteral(resourceName: "micboy"))
+        imageView2.frame = CGRect(x: 10, y: 10, width: 100, height: 100)
+//        imageView2.contentMode = .scaleToFill
+        return imageView2
+        
+    }()
+   
+   
     
     lazy var stackView: UIStackView = {
         let stackView = UIStackView()
-        stackView.axis = .vertical
+        stackView.axis = .horizontal
         stackView.spacing = 15
         stackView.alignment = .fill
         stackView.distribution = .fillEqually
-        [imageView, imageView1, imageView2].forEach { stackView.addSubview($0)
+        [imageView2, imageView1, imageView].forEach { stackView.addSubview($0)
         }
             return stackView
     }()
@@ -30,7 +49,7 @@ class ViewController: UIViewController, UIScrollViewDelegate {
     
     let scrollView : UIScrollView = {
         let scrollView = UIScrollView()
-        scrollView.contentSize = CGSize(width: 200, height: 200)
+        scrollView.contentSize = CGSize(width: 1500, height: 1100)
         scrollView.isScrollEnabled = true
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         return scrollView
@@ -99,8 +118,11 @@ class ViewController: UIViewController, UIScrollViewDelegate {
         scrollView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor).isActive = true
         scrollView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor).isActive = true
         scrollView.bottomAnchor.constraint(equalTo: containerView.centerYAnchor).isActive = true
-        scrollView.contentSize = CGSize(width: 200, height: 1100)
+//        scrollView.contentSize = CGSize(width: 1500, height: 200)
         scrollView.addSubview(stackView)
+        
+        let bottomContainer = UIView()
+        view.addSubview(bottomContainer)
      
 }
     
