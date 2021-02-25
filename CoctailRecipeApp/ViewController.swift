@@ -14,20 +14,23 @@ class ViewController: UIViewController, UIScrollViewDelegate {
     let imageView: UIImageView = {
     let imageView = UIImageView(image: #imageLiteral(resourceName: "shot"))
         imageView.frame = CGRect(x: 10, y: 10, width: 100, height: 100)
+        imageView.contentMode = .scaleAspectFill
 //        imageView.contentMode = .scaleToFill
         return imageView
         
     }()
     let imageView1: UIImageView = {
         let imageView1 = UIImageView(image: #imageLiteral(resourceName: "cup"))
-        imageView1.frame = CGRect(x: 10, y: 10, width: 100, height: 100)
+        imageView1.frame = CGRect(x: 10, y: 10, width: 150, height: 100)
+        imageView1.contentMode = .scaleToFill
 //        imageView1.contentMode = .scaleToFill
         return imageView1
         
     }()
     let imageView2: UIImageView = {
         let imageView2 = UIImageView(image: #imageLiteral(resourceName: "micboy"))
-        imageView2.frame = CGRect(x: 10, y: 10, width: 100, height: 100)
+        imageView2.frame = CGRect(x: 10, y: 10, width: 200, height: 100)
+        imageView2.contentMode = .scaleToFill
 //        imageView2.contentMode = .scaleToFill
         return imageView2
         
@@ -37,8 +40,9 @@ class ViewController: UIViewController, UIScrollViewDelegate {
     
     lazy var stackView: UIStackView = {
         let stackView = UIStackView()
+        stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .horizontal
-        stackView.spacing = 15
+        stackView.spacing = 40
         stackView.alignment = .fill
         stackView.distribution = .fillEqually
         [imageView2, imageView1, imageView].forEach { stackView.addSubview($0)
