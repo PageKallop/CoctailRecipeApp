@@ -42,6 +42,12 @@ class ViewController: UIViewController, UIScrollViewDelegate {
         label.text = "🍸🍸🍸🍸🍸🍸🍸🍸🍸"
         return label
     }()
+    
+    let martini : UIImageView = {
+        let martini = UIImageView(image: #imageLiteral(resourceName: "martini"))
+        martini.frame = CGRect(x: 50, y: 50, width: 75, height: 75)
+        return martini
+    }()
 
     
     lazy var stackView: UIStackView = {
@@ -111,9 +117,10 @@ class ViewController: UIViewController, UIScrollViewDelegate {
     
     override func viewWillAppear(_ animated: Bool) {
     topLayout()
-        view.addSubview(label)
+        view.addSubview(martini)
+        martini.center.x -= view.bounds.width
         UIView.animate(withDuration: 5) {
-            self.label.center.x += self.view.bounds.width 
+            self.martini.center.x = self.view.bounds.width
         }
      
     }
