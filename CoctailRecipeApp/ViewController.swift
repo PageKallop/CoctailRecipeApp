@@ -13,25 +13,25 @@ class ViewController: UIViewController, UIScrollViewDelegate {
    
     let imageView: UIImageView = {
     let imageView = UIImageView(image: #imageLiteral(resourceName: "shot"))
-        imageView.frame = CGRect(x: 10, y: 10, width: 100, height: 100)
+        imageView.frame = CGRect(x: 5, y: 5, width: 50, height: 50)
         imageView.contentMode = .scaleAspectFill
-//        imageView.contentMode = .scaleToFill
+        imageView.clipsToBounds = true
         return imageView
         
     }()
     let imageView1: UIImageView = {
-        let imageView1 = UIImageView(image: #imageLiteral(resourceName: "cup"))
-        imageView1.frame = CGRect(x: 10, y: 10, width: 150, height: 100)
-        imageView1.contentMode = .scaleToFill
-//        imageView1.contentMode = .scaleToFill
+        let imageView1 = UIImageView(image: #imageLiteral(resourceName: "shot"))
+        imageView1.frame = CGRect(x: 5, y: 5, width: 50, height: 50)
+        imageView1.contentMode = .scaleAspectFill
+        imageView1.clipsToBounds = true
         return imageView1
         
     }()
     let imageView2: UIImageView = {
-        let imageView2 = UIImageView(image: #imageLiteral(resourceName: "micboy"))
-        imageView2.frame = CGRect(x: 10, y: 10, width: 200, height: 100)
-        imageView2.contentMode = .scaleToFill
-//        imageView2.contentMode = .scaleToFill
+        let imageView2 = UIImageView(image: #imageLiteral(resourceName: "shot"))
+        imageView2.frame = CGRect(x: 5, y: 5, width: 50, height: 50)
+        imageView2.contentMode = .scaleAspectFill
+        imageView2.clipsToBounds = true
         return imageView2
         
     }()
@@ -45,15 +45,18 @@ class ViewController: UIViewController, UIScrollViewDelegate {
         stackView.spacing = 40
         stackView.alignment = .fill
         stackView.distribution = .fillEqually
-        [imageView2, imageView1, imageView].forEach { stackView.addSubview($0)
-        }
+        stackView.addArrangedSubview(imageView)
+        stackView.addArrangedSubview(imageView1)
+        stackView.addArrangedSubview(imageView2)
+//        [imageView2, imageView1, imageView].forEach { stackView.addSubview($0)
+//        }
             return stackView
     }()
     
     
     let scrollView : UIScrollView = {
         let scrollView = UIScrollView()
-        scrollView.contentSize = CGSize(width: 1500, height: 1100)
+        scrollView.contentSize = CGSize(width: 1500, height: 0)
         scrollView.isScrollEnabled = true
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         return scrollView
@@ -122,8 +125,12 @@ class ViewController: UIViewController, UIScrollViewDelegate {
         scrollView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor).isActive = true
         scrollView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor).isActive = true
         scrollView.bottomAnchor.constraint(equalTo: containerView.centerYAnchor).isActive = true
-//        scrollView.contentSize = CGSize(width: 1500, height: 200)
+        
         scrollView.addSubview(stackView)
+        stackView.heightAnchor.constraint(equalTo: scrollView.heightAnchor).isActive = true
+        stackView.widthAnchor.constraint(equalTo: scrollView.widthAnchor).isActive = true
+        stackView.centerYAnchor.constraint(equalTo: scrollView.centerYAnchor).isActive = true
+        stackView.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor).isActive = true
         
         let bottomContainer = UIView()
         view.addSubview(bottomContainer)
