@@ -13,7 +13,7 @@ class ViewController: UIViewController, UIScrollViewDelegate {
    
     let imageView: UIImageView = {
     let imageView = UIImageView(image: #imageLiteral(resourceName: "shot"))
-        imageView.frame = CGRect(x: 5, y: 5, width: 50, height: 50)
+//        imageView.frame = CGRect(x: 5, y: 5, width: 50, height: 50)
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
         return imageView
@@ -21,7 +21,7 @@ class ViewController: UIViewController, UIScrollViewDelegate {
     }()
     let imageView1: UIImageView = {
         let imageView1 = UIImageView(image: #imageLiteral(resourceName: "shot"))
-        imageView1.frame = CGRect(x: 5, y: 5, width: 50, height: 50)
+//        imageView1.frame = CGRect(x: 5, y: 5, width: 50, height: 50)
         imageView1.contentMode = .scaleAspectFill
         imageView1.clipsToBounds = true
         return imageView1
@@ -29,34 +29,39 @@ class ViewController: UIViewController, UIScrollViewDelegate {
     }()
     let imageView2: UIImageView = {
         let imageView2 = UIImageView(image: #imageLiteral(resourceName: "shot"))
-        imageView2.frame = CGRect(x: 5, y: 5, width: 50, height: 50)
+//        imageView2.frame = CGRect(x: 5, y: 5, width: 50, height: 50)
         imageView2.contentMode = .scaleAspectFill
         imageView2.clipsToBounds = true
         return imageView2
         
     }()
-   
-   
+    
+    let label : UILabel = {
+        let label = UILabel()
+    label.frame = CGRect(x: 50, y: 50, width: 50, height: 50)
+        label.text = "🍸"
+        return label
+    }()
+
     
     lazy var stackView: UIStackView = {
         let stackView = UIStackView()
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .horizontal
-        stackView.spacing = 40
+        stackView.spacing = 10
         stackView.alignment = .fill
         stackView.distribution = .fillEqually
         stackView.addArrangedSubview(imageView)
         stackView.addArrangedSubview(imageView1)
         stackView.addArrangedSubview(imageView2)
-//        [imageView2, imageView1, imageView].forEach { stackView.addSubview($0)
-//        }
+
             return stackView
     }()
     
     
     let scrollView : UIScrollView = {
         let scrollView = UIScrollView()
-        scrollView.contentSize = CGSize(width: 1500, height: 0)
+        scrollView.contentSize = CGSize(width: 500, height: 0)
         scrollView.isScrollEnabled = true
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         return scrollView
@@ -104,6 +109,13 @@ class ViewController: UIViewController, UIScrollViewDelegate {
 
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+    topLayout()
+        UIView.animate(withDuration: 5) {
+            self.label.frame = CGRect(x: 150, y: 300, width: 200, height: 20)
+        }
+    }
+    
     @objc func findButtonAction(sender: UIButton!) {
         print("pressed")
     }
@@ -113,27 +125,28 @@ class ViewController: UIViewController, UIScrollViewDelegate {
         let containerView = UIView()
         view.addSubview(containerView)
         containerView.translatesAutoresizingMaskIntoConstraints = false
-        containerView.backgroundColor = .purple
+        containerView.backgroundColor = .cyan
         containerView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
         containerView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         containerView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
         containerView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.5).isActive = true
+    
         
         containerView.addSubview(scrollView)
-        scrollView.backgroundColor = UIColor.cyan
+        scrollView.backgroundColor = UIColor.black
         scrollView.topAnchor.constraint(equalTo: containerView.safeAreaLayoutGuide.topAnchor).isActive = true
         scrollView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor).isActive = true
         scrollView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor).isActive = true
         scrollView.bottomAnchor.constraint(equalTo: containerView.centerYAnchor).isActive = true
+        
+       
         
         scrollView.addSubview(stackView)
         stackView.heightAnchor.constraint(equalTo: scrollView.heightAnchor).isActive = true
         stackView.widthAnchor.constraint(equalTo: scrollView.widthAnchor).isActive = true
         stackView.centerYAnchor.constraint(equalTo: scrollView.centerYAnchor).isActive = true
         stackView.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor).isActive = true
-        
-        let bottomContainer = UIView()
-        view.addSubview(bottomContainer)
+
      
 }
     
