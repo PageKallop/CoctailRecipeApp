@@ -38,8 +38,8 @@ class ViewController: UIViewController, UIScrollViewDelegate {
     
     let label : UILabel = {
         let label = UILabel()
-    label.frame = CGRect(x: 50, y: 50, width: 50, height: 50)
-        label.text = "🍸"
+    label.frame = CGRect(x: 50, y: 50, width: 75, height: 75)
+        label.text = "🍸🍸🍸🍸🍸🍸🍸🍸🍸"
         return label
     }()
 
@@ -111,9 +111,11 @@ class ViewController: UIViewController, UIScrollViewDelegate {
     
     override func viewWillAppear(_ animated: Bool) {
     topLayout()
+        view.addSubview(label)
         UIView.animate(withDuration: 5) {
-            self.label.frame = CGRect(x: 150, y: 300, width: 200, height: 20)
+            self.label.center.x += self.view.bounds.width 
         }
+     
     }
     
     @objc func findButtonAction(sender: UIButton!) {
@@ -125,13 +127,13 @@ class ViewController: UIViewController, UIScrollViewDelegate {
         let containerView = UIView()
         view.addSubview(containerView)
         containerView.translatesAutoresizingMaskIntoConstraints = false
-        containerView.backgroundColor = .cyan
+        containerView.backgroundColor = .black
         containerView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
         containerView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         containerView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
         containerView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.5).isActive = true
-    
-        
+   
+
         containerView.addSubview(scrollView)
         scrollView.backgroundColor = UIColor.black
         scrollView.topAnchor.constraint(equalTo: containerView.safeAreaLayoutGuide.topAnchor).isActive = true
