@@ -36,16 +36,9 @@ class ViewController: UIViewController, UIScrollViewDelegate {
         
     }()
     
-    let label : UILabel = {
-        let label = UILabel()
-    label.frame = CGRect(x: 50, y: 50, width: 75, height: 75)
-        label.text = "🍸🍸🍸🍸🍸🍸🍸🍸🍸"
-        return label
-    }()
-    
     let martini : UIImageView = {
         let martini = UIImageView(image: #imageLiteral(resourceName: "martini"))
-        martini.frame = CGRect(x: 50, y: 50, width: 75, height: 75)
+        martini.frame = CGRect(x: 100, y: 100, width: 75, height: 75)
         return martini
     }()
 
@@ -116,12 +109,9 @@ class ViewController: UIViewController, UIScrollViewDelegate {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-    topLayout()
-        view.addSubview(martini)
-        martini.center.x -= view.bounds.width
-        UIView.animate(withDuration: 5) {
-            self.martini.center.x = self.view.bounds.width
-        }
+        super.viewDidLoad()
+        
+        topLayout()
      
     }
     
@@ -139,6 +129,11 @@ class ViewController: UIViewController, UIScrollViewDelegate {
         containerView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         containerView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
         containerView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.5).isActive = true
+//
+//        containerView.addSubview(martini)
+//
+        
+
    
 
         containerView.addSubview(scrollView)
@@ -155,6 +150,20 @@ class ViewController: UIViewController, UIScrollViewDelegate {
         stackView.widthAnchor.constraint(equalTo: scrollView.widthAnchor).isActive = true
         stackView.centerYAnchor.constraint(equalTo: scrollView.centerYAnchor).isActive = true
         stackView.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor).isActive = true
+        
+        let animationView = UIView()
+        containerView.addSubview(animationView)
+        animationView.translatesAutoresizingMaskIntoConstraints = false
+        animationView.topAnchor.constraint(equalTo: scrollView.bottomAnchor).isActive = true
+        animationView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor).isActive = true
+        animationView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor).isActive = true
+        animationView.bottomAnchor.constraint(equalTo: containerView.bottomAnchor).isActive = true
+        animationView.backgroundColor = UIColor.red
+        animationView.addSubview(martini)
+        UIView.animate(withDuration: 3) {
+            self.martini.center.x = containerView.bounds.width
+          self.martini.center.x -= containerView.bounds.width
+        }
 
      
 }
