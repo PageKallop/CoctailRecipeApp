@@ -36,9 +36,9 @@ class ViewController: UIViewController, UIScrollViewDelegate {
         
     }()
     
-    let martini : UIImageView = {
-        let martini = UIImageView(image: #imageLiteral(resourceName: "martini"))
-        martini.frame = CGRect(x: 100, y: 100, width: 75, height: 75)
+    let bar : UIImageView = {
+        let martini = UIImageView(image: #imageLiteral(resourceName: "bar"))
+        martini.frame = CGRect(x: 100, y: 100, width: 50, height: 50)
         return martini
     }()
 
@@ -158,11 +158,23 @@ class ViewController: UIViewController, UIScrollViewDelegate {
         animationView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor).isActive = true
         animationView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor).isActive = true
         animationView.bottomAnchor.constraint(equalTo: containerView.bottomAnchor).isActive = true
-        animationView.backgroundColor = UIColor.red
-        animationView.addSubview(martini)
-        UIView.animate(withDuration: 3) {
-            self.martini.center.x = containerView.bounds.width
-          self.martini.center.x -= containerView.bounds.width
+        animationView.backgroundColor = UIColor.black
+        animationView.addSubview(bar)
+        bar.translatesAutoresizingMaskIntoConstraints = false
+        bar.topAnchor.constraint(equalTo: animationView.topAnchor,constant: 15).isActive = true
+        bar.leadingAnchor.constraint(equalTo: animationView.leadingAnchor).isActive = true
+        bar.trailingAnchor.constraint(equalTo: animationView.trailingAnchor).isActive = true
+        bar.bottomAnchor.constraint(equalTo: animationView.bottomAnchor, constant: -15).isActive = true
+        
+        
+        UIView.animate(withDuration: 0.5) {
+            
+//            self.martini.frame.origin.x = self.martini.frame.size.width
+            
+//            self.martini.center.x = containerView.bounds.width
+//
+//         self.martini.center.x = containerView.bounds.width
+            self.bar.frame.origin.x -= self.bar.frame.size.width
         }
 
      
@@ -171,6 +183,7 @@ class ViewController: UIViewController, UIScrollViewDelegate {
     func bottomLayout() {
         let bottomContainerView = UIView()
         view.addSubview(bottomContainerView)
+        bottomContainerView.backgroundColor = UIColor.black
         bottomContainerView.translatesAutoresizingMaskIntoConstraints = false
         bottomContainerView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
         bottomContainerView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
