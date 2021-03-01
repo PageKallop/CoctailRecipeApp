@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C059D7DA25ED488E00162337 /* CoctailManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C059D7D925ED488E00162337 /* CoctailManager.swift */; };
+		C059D7DD25ED4EB300162337 /* CoctailData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C059D7DC25ED4EB300162337 /* CoctailData.swift */; };
 		C0F8FAB125E02145006CAFE3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F8FAB025E02145006CAFE3 /* AppDelegate.swift */; };
 		C0F8FAB325E02145006CAFE3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F8FAB225E02145006CAFE3 /* SceneDelegate.swift */; };
 		C0F8FAB525E02145006CAFE3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F8FAB425E02145006CAFE3 /* ViewController.swift */; };
@@ -16,6 +18,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C059D7D925ED488E00162337 /* CoctailManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoctailManager.swift; sourceTree = "<group>"; };
+		C059D7DC25ED4EB300162337 /* CoctailData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoctailData.swift; sourceTree = "<group>"; };
 		C0F8FAAD25E02145006CAFE3 /* CoctailRecipeApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoctailRecipeApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0F8FAB025E02145006CAFE3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C0F8FAB225E02145006CAFE3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -58,6 +62,8 @@
 			children = (
 				C0F8FAB025E02145006CAFE3 /* AppDelegate.swift */,
 				C0F8FAB225E02145006CAFE3 /* SceneDelegate.swift */,
+				C059D7D925ED488E00162337 /* CoctailManager.swift */,
+				C059D7DC25ED4EB300162337 /* CoctailData.swift */,
 				C0F8FAB425E02145006CAFE3 /* ViewController.swift */,
 				C0F8FABC25E02145006CAFE3 /* Assets.xcassets */,
 				C0F8FABE25E02145006CAFE3 /* LaunchScreen.storyboard */,
@@ -138,6 +144,8 @@
 			files = (
 				C0F8FAB525E02145006CAFE3 /* ViewController.swift in Sources */,
 				C0F8FABB25E02145006CAFE3 /* CoctailRecipeApp.xcdatamodeld in Sources */,
+				C059D7DA25ED488E00162337 /* CoctailManager.swift in Sources */,
+				C059D7DD25ED4EB300162337 /* CoctailData.swift in Sources */,
 				C0F8FAB125E02145006CAFE3 /* AppDelegate.swift in Sources */,
 				C0F8FAB325E02145006CAFE3 /* SceneDelegate.swift in Sources */,
 			);

@@ -14,6 +14,7 @@ class ViewController: UIViewController, UIScrollViewDelegate {
     let imageView: UIImageView = {
     let imageView = UIImageView(image: #imageLiteral(resourceName: "shot"))
 //        imageView.frame = CGRect(x: 5, y: 5, width: 50, height: 50)
+        
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
         return imageView
@@ -30,6 +31,7 @@ class ViewController: UIViewController, UIScrollViewDelegate {
     let imageView2: UIImageView = {
         let imageView2 = UIImageView(image: #imageLiteral(resourceName: "shot"))
 //        imageView2.frame = CGRect(x: 5, y: 5, width: 50, height: 50)
+        
         imageView2.contentMode = .scaleAspectFill
         imageView2.clipsToBounds = true
         return imageView2
@@ -37,7 +39,7 @@ class ViewController: UIViewController, UIScrollViewDelegate {
     }()
     
     let bar : UIImageView = {
-        let martini = UIImageView(image: #imageLiteral(resourceName: "bar"))
+        let martini = UIImageView(image: #imageLiteral(resourceName: "500_F_259311032_KWupNx0SbrWLaBZHeGpDT3krtxC7PkCZ"))
         martini.frame = CGRect(x: 100, y: 100, width: 50, height: 50)
         return martini
     }()
@@ -47,7 +49,7 @@ class ViewController: UIViewController, UIScrollViewDelegate {
         let stackView = UIStackView()
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .horizontal
-        stackView.spacing = 10
+        stackView.spacing = 15
         stackView.alignment = .fill
         stackView.distribution = .fillEqually
         stackView.addArrangedSubview(imageView)
@@ -88,7 +90,7 @@ class ViewController: UIViewController, UIScrollViewDelegate {
         findButton.setTitle("Mixologist...", for: .normal)
         findButton.titleLabel?.font = UIFont(name: "SnellRoundhand", size: 25)
         findButton.setTitleColor(UIColor.black, for: .normal)
-        findButton.layer.cornerRadius = 30
+        findButton.layer.cornerRadius = 20
         findButton.addTarget(self, action: #selector(findButtonAction(sender:)), for: .touchUpInside)
         findButton.translatesAutoresizingMaskIntoConstraints = false
         
@@ -138,10 +140,10 @@ class ViewController: UIViewController, UIScrollViewDelegate {
 
         containerView.addSubview(scrollView)
         scrollView.backgroundColor = UIColor.black
-        scrollView.topAnchor.constraint(equalTo: containerView.safeAreaLayoutGuide.topAnchor).isActive = true
+        scrollView.topAnchor.constraint(equalTo: containerView.safeAreaLayoutGuide.topAnchor,constant: 20).isActive = true
         scrollView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor).isActive = true
         scrollView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor).isActive = true
-        scrollView.bottomAnchor.constraint(equalTo: containerView.centerYAnchor).isActive = true
+        scrollView.bottomAnchor.constraint(equalTo: containerView.centerYAnchor, constant: -25).isActive = true
         
        
         
@@ -167,13 +169,14 @@ class ViewController: UIViewController, UIScrollViewDelegate {
         bar.bottomAnchor.constraint(equalTo: animationView.bottomAnchor, constant: -15).isActive = true
         
         
+      
         UIView.animate(withDuration: 0.5) {
             
 //            self.martini.frame.origin.x = self.martini.frame.size.width
             
 //            self.martini.center.x = containerView.bounds.width
 //
-//         self.martini.center.x = containerView.bounds.width
+           self.bar.center.x -= containerView.bounds.width
             self.bar.frame.origin.x -= self.bar.frame.size.width
         }
 
@@ -192,16 +195,16 @@ class ViewController: UIViewController, UIScrollViewDelegate {
         
         
         bottomContainerView.addSubview(searchTextField)
-        searchTextField.topAnchor.constraint(equalTo: bottomContainerView.topAnchor, constant: 120).isActive = true
-        searchTextField.leadingAnchor.constraint(equalTo: bottomContainerView.leadingAnchor,constant: 15).isActive = true
+        searchTextField.topAnchor.constraint(equalTo: bottomContainerView.topAnchor, constant: 75).isActive = true
+        searchTextField.leadingAnchor.constraint(equalTo: bottomContainerView.leadingAnchor,constant: 25).isActive = true
         searchTextField.bottomAnchor.constraint(equalTo: bottomContainerView.bottomAnchor,constant: -300).isActive = true
-        searchTextField.trailingAnchor.constraint(equalTo: bottomContainerView.trailingAnchor, constant: -100).isActive = true
+        searchTextField.trailingAnchor.constraint(equalTo: bottomContainerView.trailingAnchor, constant: -25).isActive = true
         
         bottomContainerView.addSubview(findButton)
-        findButton.topAnchor.constraint(equalTo: searchTextField.bottomAnchor, constant: 30).isActive = true
-        findButton.leadingAnchor.constraint(equalTo: bottomContainerView.leadingAnchor, constant: 100).isActive = true
-        findButton.bottomAnchor.constraint(equalTo: bottomContainerView.bottomAnchor, constant: -210).isActive = true
-        findButton.trailingAnchor.constraint(equalTo: bottomContainerView.trailingAnchor,constant: -50).isActive = true
+        findButton.topAnchor.constraint(equalTo: searchTextField.bottomAnchor, constant: 150).isActive = true
+        findButton.leadingAnchor.constraint(equalTo: bottomContainerView.leadingAnchor, constant: 30).isActive = true
+        findButton.bottomAnchor.constraint(equalTo: bottomContainerView.bottomAnchor, constant: -100).isActive = true
+        findButton.trailingAnchor.constraint(equalTo: bottomContainerView.trailingAnchor, constant: -30).isActive = true
     }
 
 }
