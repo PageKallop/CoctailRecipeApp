@@ -11,6 +11,8 @@ class CoctailRecipeView: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        view.backgroundColor = .gray
 
     }
 

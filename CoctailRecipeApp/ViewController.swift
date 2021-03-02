@@ -99,13 +99,8 @@ class ViewController: UIViewController, UIScrollViewDelegate, UITextFieldDelegat
     }()
     
     var coctailManager = CoctailManager()
-    let cocatilRecipeView = CoctailRecipeView()
-    
-    let storyboard = UIStoryboard(name: "CoctailRecipe", bundle: nil)
-    let coctailRecipe = storyboard.instantiateViewController(withIdentifier: "CoctailRecipe") as! CoctailRecipeView
-    self.presentViewController(coctailRecipe, animated: true)
+  
 
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -131,7 +126,15 @@ class ViewController: UIViewController, UIScrollViewDelegate, UITextFieldDelegat
     @objc func findButtonAction(_ sender: UIButton!) {
         print("pessed")
         searchTextField.endEditing(true)
+        
+        let rootVC = CoctailRecipeView()
+        rootVC.title = "1 or 2"
+        let navVC = UINavigationController(rootViewController: rootVC)
+        present(navVC, animated: true)
+        
+      
     }
+    
     
     func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
         if searchTextField.text != "" {
@@ -153,6 +156,13 @@ class ViewController: UIViewController, UIScrollViewDelegate, UITextFieldDelegat
         searchTextField.endEditing(true)
         return true 
     }
+//
+//    private func pushViewController(title: String) {
+//
+//        let vc = CoctailRecipeView()
+//        vc.title = title
+//        self.navigationController?.pushViewController(vc, animated: true)
+//    }
   
     func topLayout() {
        
