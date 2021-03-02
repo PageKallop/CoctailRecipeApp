@@ -127,9 +127,10 @@ class ViewController: UIViewController, UIScrollViewDelegate, UITextFieldDelegat
         print("pessed")
         searchTextField.endEditing(true)
         
-        let rootVC = CoctailRecipeView()
-        rootVC.title = "1 or 2"
-        let navVC = UINavigationController(rootViewController: rootVC)
+        let recipeVC = CoctailRecipeView()
+        recipeVC.title = "1 or 2"
+        let navVC = UINavigationController(rootViewController: recipeVC)
+        navVC.modalPresentationStyle = .fullScreen
         present(navVC, animated: true)
         
       
