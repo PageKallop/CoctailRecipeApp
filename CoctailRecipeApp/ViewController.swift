@@ -8,7 +8,7 @@
 import UIKit
 
 
-class ViewController: UIViewController, UIScrollViewDelegate {
+class ViewController: UIViewController, UIScrollViewDelegate, UITextFieldDelegate {
     
    
     let imageView: UIImageView = {
@@ -72,6 +72,7 @@ class ViewController: UIViewController, UIScrollViewDelegate {
     
     let searchTextField : UITextField = {
       let searchTextField = UITextField()
+        searchTextField.text = "margarita"
         searchTextField.placeholder = "Coctail?"
         searchTextField.borderStyle = .roundedRect
         searchTextField.translatesAutoresizingMaskIntoConstraints = false
@@ -91,22 +92,32 @@ class ViewController: UIViewController, UIScrollViewDelegate {
         findButton.titleLabel?.font = UIFont(name: "SnellRoundhand", size: 25)
         findButton.setTitleColor(UIColor.black, for: .normal)
         findButton.layer.cornerRadius = 20
-        findButton.addTarget(self, action: #selector(findButtonAction(sender:)), for: .touchUpInside)
+        findButton.addTarget(self, action: #selector(findButtonAction(_ :)), for: .touchUpInside)
         findButton.translatesAutoresizingMaskIntoConstraints = false
         
         return findButton
     }()
+    
+    var coctailManager = CoctailManager()
+    let cocatilRecipeView = CoctailRecipeView()
+    
+    let storyboard = UIStoryboard(name: "CoctailRecipe", bundle: nil)
+    let coctailRecipe = storyboard.instantiateViewController(withIdentifier: "CoctailRecipe") as! CoctailRecipeView
+    self.presentViewController(coctailRecipe, animated: true)
 
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        searchTextField.delegate = self
+        
         view.backgroundColor = UIColor.white
    
         self.view.addSubview(searchTextField)
         topLayout()
         bottomLayout()
      
-        
+     
 
     }
     
@@ -117,8 +128,30 @@ class ViewController: UIViewController, UIScrollViewDelegate {
      
     }
     
-    @objc func findButtonAction(sender: UIButton!) {
-        print("pressed")
+    @objc func findButtonAction(_ sender: UIButton!) {
+        print("pessed")
+        searchTextField.endEditing(true)
+    }
+    
+    func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
+        if searchTextField.text != "" {
+            return true
+        } else {
+            searchTextField.placeholder = "Type a coctail"
+            return false
+        }
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        if let coctail = searchTextField.text {
+            coctailManager.getCoctail(coctailName: coctail)
+        }
+        searchTextField.text = ""
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        searchTextField.endEditing(true)
+        return true 
     }
   
     func topLayout() {
