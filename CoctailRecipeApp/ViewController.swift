@@ -125,13 +125,14 @@ class ViewController: UIViewController, UIScrollViewDelegate, UITextFieldDelegat
     
     @objc func findButtonAction(_ sender: UIButton!) {
         print("pessed")
+    
         searchTextField.endEditing(true)
         
         let recipeVC = CoctailRecipeView()
-        recipeVC.title = "1 or 2"
         let navVC = UINavigationController(rootViewController: recipeVC)
         navVC.modalPresentationStyle = .fullScreen
         present(navVC, animated: true)
+      
         
       
     }
@@ -157,13 +158,6 @@ class ViewController: UIViewController, UIScrollViewDelegate, UITextFieldDelegat
         searchTextField.endEditing(true)
         return true 
     }
-//
-//    private func pushViewController(title: String) {
-//
-//        let vc = CoctailRecipeView()
-//        vc.title = title
-//        self.navigationController?.pushViewController(vc, animated: true)
-//    }
   
     func topLayout() {
        

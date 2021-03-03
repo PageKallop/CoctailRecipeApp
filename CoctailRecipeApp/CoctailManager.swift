@@ -31,7 +31,7 @@ struct CoctailManager {
                     
                 }
                 if let safeData = data {
-                    self.parseJSON(coctailData: safeData)
+                   self.parseJSON(coctailData: safeData)
                     print(safeData)
                     
                 }
@@ -46,7 +46,8 @@ struct CoctailManager {
         let decoder = JSONDecoder()
         do {
             let decodedData = try decoder.decode(CoctailData.self, from: coctailData)
-            print(decodedData.drinks[0].strMeasure1 ?? "Default")
+            let drinkName = decodedData.drinks[0].strDrink
+            print(decodedData.drinks[0].strInstructions ?? "Default")
         } catch {
             print(error)
         }
