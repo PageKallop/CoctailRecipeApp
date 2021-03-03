@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CoctailRecipeView: UIViewController {
+class CoctailRecipeView: UIViewController, CoctailManagerDelegate {
 
     
     var coctailManager = CoctailManager()
@@ -23,9 +23,11 @@ class CoctailRecipeView: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        coctailManager.delegate = self 
        
 //        title = drinks[0].strDrink
         print("didnt\(drinks)")
+        print("coctailM\(coctailManager)")
         view.backgroundColor = .gray
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Back", style: .plain, target: self, action: #selector(dismissSelf))
    
@@ -33,6 +35,10 @@ class CoctailRecipeView: UIViewController {
     
     @objc private func dismissSelf(){
         dismiss(animated: true, completion: nil)
+    }
+    
+    func didLoadRecipe(coctailManager: CoctailManager) {
+        print(drinks[0].strDrink)
     }
 
 }
