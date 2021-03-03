@@ -18,16 +18,19 @@ class CoctailRecipeView: UIViewController, CoctailManagerDelegate {
     
     var drinks = [Drinks]()
     
+    var selectedDrink : Drinks?{
+        didSet {
+            didLoadRecipe(coctailManager: coctailManager)
+            print("ii i i \(drinks)")
+        }
+    }
   
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        coctailManager.delegate = self 
-       
-//        title = drinks[0].strDrink
-        print("didnt\(drinks)")
-        print("coctailM\(coctailManager)")
+        didLoadRecipe(coctailManager: coctailManager)
+        coctailManager.delegate = self
+     
         view.backgroundColor = .gray
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Back", style: .plain, target: self, action: #selector(dismissSelf))
    
@@ -38,7 +41,9 @@ class CoctailRecipeView: UIViewController, CoctailManagerDelegate {
     }
     
     func didLoadRecipe(coctailManager: CoctailManager) {
-        print(drinks[0].strDrink)
+        DispatchQueue.main.async {
+            
+        }
     }
 
 }
