@@ -8,7 +8,8 @@
 import Foundation
 
 protocol CoctailManagerDelegate {
-    func didLoadRecipe(coctailManager: CoctailManager)
+    func didLoadRecipe(coctailManager: CoctailManager, coctailRecipe: CoctailModel)
+    func didFailWithError(error: Error)
 }
 
 struct CoctailManager {
@@ -36,7 +37,10 @@ struct CoctailManager {
                     
                 }
                 if let safeData = data {
-                      self.parseJSON(coctailData: safeData) 
+                    if let coctailRecipe = self.parseJSON(coctailData: safeData) {
+                        
+                        self.delegate?.didLoadRecipe(coctailManager: self, coctailRecipe: coctailRecipe)
+                    }
                     
                     
                 }
@@ -46,17 +50,22 @@ struct CoctailManager {
         }
     }
     
-    func parseJSON(coctailData: Data) {
+    func parseJSON(coctailData: Data) -> CoctailModel? {
    
         let decoder = JSONDecoder()
         do {
             let decodedData = try decoder.decode(CoctailData.self, from: coctailData)
-            let drinkName = decodedData.drinks[0].strDrink
-            
-            print(decodedData.drinks[0].strInstructions ?? "Default")
-            print(drinkName)
+           
+            let drinkName = decodedData.drinks[0].strDrink!
+    
+            let coctailRecipe = CoctailModel(coctailName: drinkName)
+           
+            print(coctailRecipe.coctailName)
+            return coctailRecipe
         } catch {
             print(error)
+        return nil
+           
         }
     }
 }
