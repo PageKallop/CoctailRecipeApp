@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CoctailRecipeView: UIViewController, CoctailManagerDelegate {
+class CoctailRecipeView: UIViewController, UITextFieldDelegate, CoctailManagerDelegate {
  
     
     let label: UILabel = {
@@ -20,6 +20,8 @@ class CoctailRecipeView: UIViewController, CoctailManagerDelegate {
     }()
     
     var coctailManager = CoctailManager()
+  
+  
 
     
     override func viewDidLoad() {
@@ -27,8 +29,10 @@ class CoctailRecipeView: UIViewController, CoctailManagerDelegate {
         print("loaded")
         
         view.addSubview(label)
-        
+   
+       
         coctailManager.delegate = self
+        
    
         view.backgroundColor = .gray
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Back", style: .plain, target: self, action: #selector(dismissSelf))
@@ -39,10 +43,11 @@ class CoctailRecipeView: UIViewController, CoctailManagerDelegate {
     }
     
     func didLoadRecipe(_ coctailManager: CoctailManager, coctailRecipe: CoctailModel) {
-        DispatchQueue.main.async {
+
             self.label.text = coctailRecipe.coctailName
+            
             print("i i i i i i i i i\(coctailRecipe.coctailName)")
-        }
+        
     }
         
     func didFailWithError(error: Error) {

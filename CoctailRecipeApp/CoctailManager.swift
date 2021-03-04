@@ -14,24 +14,24 @@ protocol CoctailManagerDelegate {
 
 struct CoctailManager {
     
-    var delegate: CoctailManagerDelegate?
   
-    
  let coctailURL = "https://www.thecocktaildb.com/api/json/v1/1/search.php?s"
+    
+    var delegate: CoctailManagerDelegate?
     
     func getCoctail(coctailName: String) {
         
         let urlString = "\(coctailURL)=\(coctailName)"
         performRequest(with: urlString)
-        print(urlString)
     }
     
     func performRequest(with urlString: String) {
       
         if let url = URL(string: urlString) {
-            let session = URLSession.shared
+            let session = URLSession(configuration: .default)
             let task = session.dataTask(with: url) {(data, responce, error) in
                 if error != nil {
+                    self.delegate?.didFailWithError(error: error!)
                     print(error!)
                     return
                     
@@ -62,8 +62,9 @@ struct CoctailManager {
            
             print(coctailRecipe.coctailName)
             return coctailRecipe
+            
         } catch {
-            print(error)
+            delegate?.didFailWithError(error: error)
         return nil
            
         }

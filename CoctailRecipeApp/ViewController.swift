@@ -8,9 +8,8 @@
 import UIKit
 
 
-class ViewController: UIViewController, UIScrollViewDelegate, UITextFieldDelegate {
-    
-   
+class ViewController: UIViewController, UIScrollViewDelegate, UITextFieldDelegate, CoctailManagerDelegate {
+
     let imageView: UIImageView = {
     let imageView = UIImageView(image: #imageLiteral(resourceName: "shot"))
 //        imageView.frame = CGRect(x: 5, y: 5, width: 50, height: 50)
@@ -104,6 +103,8 @@ class ViewController: UIViewController, UIScrollViewDelegate, UITextFieldDelegat
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        coctailManager.delegate = self
+        
         searchTextField.delegate = self
         
         view.backgroundColor = UIColor.white
@@ -124,8 +125,7 @@ class ViewController: UIViewController, UIScrollViewDelegate, UITextFieldDelegat
     }
     
     @objc func findButtonAction(_ sender: UIButton!) {
-        print("pessed")
-    
+
         searchTextField.endEditing(true)
         
         let recipeVC = CoctailRecipeView()
@@ -243,6 +243,14 @@ class ViewController: UIViewController, UIScrollViewDelegate, UITextFieldDelegat
         findButton.leadingAnchor.constraint(equalTo: bottomContainerView.leadingAnchor, constant: 30).isActive = true
         findButton.bottomAnchor.constraint(equalTo: bottomContainerView.bottomAnchor, constant: -100).isActive = true
         findButton.trailingAnchor.constraint(equalTo: bottomContainerView.trailingAnchor, constant: -30).isActive = true
+    }
+    
+    func didLoadRecipe(_ coctailManager: CoctailManager, coctailRecipe: CoctailModel) {
+        print(coctailRecipe.coctailName)
+    }
+    
+    func didFailWithError(error: Error) {
+        print("vc fail")
     }
 
 }
