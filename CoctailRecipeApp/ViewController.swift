@@ -22,7 +22,6 @@ class ViewController: UIViewController, UIScrollViewDelegate, UITextFieldDelegat
             return stackView
     }()
 
-    
     var coctailManager = CoctailManager()
 //    var uiElement = UIElements()
 
@@ -63,12 +62,11 @@ class ViewController: UIViewController, UIScrollViewDelegate, UITextFieldDelegat
   
         searchTextField.endEditing(true)
         
-        let recipeVC = CoctailRecipeView()
-        let navVC = UINavigationController(rootViewController: recipeVC)
-        navVC.modalPresentationStyle = .fullScreen
-        present(navVC, animated: true)
-      
-        
+//        let recipeVC = CoctailRecipeView()
+//        let navVC = UINavigationController(rootViewController: recipeVC)
+//        navVC.modalPresentationStyle = .fullScreen
+//        present(navVC, animated: true)
+   
       
     }
     
@@ -187,7 +185,12 @@ class ViewController: UIViewController, UIScrollViewDelegate, UITextFieldDelegat
         
         DispatchQueue.main.async {
             let recipeVC = CoctailRecipeView()
-            recipeVC.label.text = "HERE"
+            let navVC = UINavigationController(rootViewController: recipeVC)
+            navVC.modalPresentationStyle = .fullScreen
+            self.present(navVC, animated: true)
+          
+//            let recipeVC = CoctailRecipeView()
+//            recipeVC.label.text = "HERE"
             recipeVC.label.text = coctailRecipe.coctailName
             print("all \(coctailRecipe.coctailName)")
         }

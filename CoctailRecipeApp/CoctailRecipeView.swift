@@ -8,10 +8,12 @@
 import UIKit
 
 class CoctailRecipeView: UIViewController, UITextFieldDelegate, CoctailManagerDelegate {
+    
+
  
     
     let label: UILabel = {
-    let label = UILabel(frame: CGRect(x: 50, y: 100, width: 100, height: 100))
+    let label = UILabel(frame: CGRect(x: 50, y: 100, width: 300, height: 100))
         label.backgroundColor = UIColor.white
         label.font = UIFont.boldSystemFont(ofSize: 50)
 
@@ -25,7 +27,8 @@ class CoctailRecipeView: UIViewController, UITextFieldDelegate, CoctailManagerDe
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("loaded")
+    
+        
 
         coctailManager.delegate = self
    
@@ -34,7 +37,7 @@ class CoctailRecipeView: UIViewController, UITextFieldDelegate, CoctailManagerDe
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        
+        print("out here\(coctailManager.coctailURL)")
         view.addSubview(label)
     }
     
@@ -43,6 +46,7 @@ class CoctailRecipeView: UIViewController, UITextFieldDelegate, CoctailManagerDe
     @objc private func dismissSelf(){
         dismiss(animated: true, completion: nil)
     }
+    
     
     func didLoadRecipe(_ coctailManager: CoctailManager, coctailRecipe: CoctailModel) {
 
