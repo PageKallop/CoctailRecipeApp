@@ -20,23 +20,25 @@ class CoctailRecipeView: UIViewController, UITextFieldDelegate, CoctailManagerDe
     }()
     
     var coctailManager = CoctailManager()
-  
-  
-
+    var theDrinks = [Drinks]()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         print("loaded")
-        
-        view.addSubview(label)
-   
-       
+
         coctailManager.delegate = self
-        
    
         view.backgroundColor = .gray
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Back", style: .plain, target: self, action: #selector(dismissSelf))
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        
+        view.addSubview(label)
+    }
+    
+
     
     @objc private func dismissSelf(){
         dismiss(animated: true, completion: nil)
@@ -45,11 +47,11 @@ class CoctailRecipeView: UIViewController, UITextFieldDelegate, CoctailManagerDe
     func didLoadRecipe(_ coctailManager: CoctailManager, coctailRecipe: CoctailModel) {
 
             self.label.text = coctailRecipe.coctailName
-            
+
             print("i i i i i i i i i\(coctailRecipe.coctailName)")
-        
+
     }
-        
+
     func didFailWithError(error: Error) {
         print(error)
     }

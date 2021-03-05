@@ -44,19 +44,19 @@ struct UIElements {
     }()
 
     
-    lazy var stackView: UIStackView = {
-        let stackView = UIStackView()
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        stackView.axis = .horizontal
-        stackView.spacing = 15
-        stackView.alignment = .fill
-        stackView.distribution = .fillEqually
-//        stackView.addArrangedSubview(imageView)
-//        stackView.addArrangedSubview(imageView1)
-//        stackView.addArrangedSubview(imageView2)
-
-            return stackView
-    }()
+//    lazy var stackView: UIStackView = {
+//        let stackView = UIStackView()
+//        stackView.translatesAutoresizingMaskIntoConstraints = false
+//        stackView.axis = .horizontal
+//        stackView.spacing = 15
+//        stackView.alignment = .fill
+//        stackView.distribution = .fillEqually
+////        stackView.addArrangedSubview(imageView)
+////        stackView.addArrangedSubview(imageView1)
+////        stackView.addArrangedSubview(imageView2)
+//
+//            return stackView
+//    }()
     
     
     let scrollView : UIScrollView = {

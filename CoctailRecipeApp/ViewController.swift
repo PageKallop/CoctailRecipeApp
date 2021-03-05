@@ -18,18 +18,13 @@ class ViewController: UIViewController, UIScrollViewDelegate, UITextFieldDelegat
         stackView.spacing = 15
         stackView.alignment = .fill
         stackView.distribution = .fillEqually
-//        stackView.addArrangedSubview(imageView)
-//        stackView.addArrangedSubview(imageView1)
-//        stackView.addArrangedSubview(imageView2)
 
             return stackView
     }()
 
     
     var coctailManager = CoctailManager()
-
-   
-    var uiElement = UIElements()
+//    var uiElement = UIElements()
 
     var imageView = UIElements().imageView
     var imageView1 = UIElements().imageView1
@@ -37,11 +32,6 @@ class ViewController: UIViewController, UIScrollViewDelegate, UITextFieldDelegat
     var scrollView  = UIElements().scrollView
     var findButton = UIElements().findButton
     var bar = UIElements().bar 
-    
-  
-    
-    
-    
     var searchTextField = UIElements().searchTextField
     
     override func viewDidLoad() {
@@ -70,7 +60,7 @@ class ViewController: UIViewController, UIScrollViewDelegate, UITextFieldDelegat
     }
     
     @objc func findButtonAction(_ sender: UIButton!) {
-
+  
         searchTextField.endEditing(true)
         
         let recipeVC = CoctailRecipeView()
@@ -194,7 +184,16 @@ class ViewController: UIViewController, UIScrollViewDelegate, UITextFieldDelegat
     }
     
     func didLoadRecipe(_ coctailManager: CoctailManager, coctailRecipe: CoctailModel) {
-        print(coctailRecipe.coctailName)
+        
+        DispatchQueue.main.async {
+            let recipeVC = CoctailRecipeView()
+            recipeVC.label.text = "HERE"
+            recipeVC.label.text = coctailRecipe.coctailName
+            print("all \(coctailRecipe.coctailName)")
+        }
+        
+     
+        print("did\(coctailRecipe.coctailName)")
     }
     
     func didFailWithError(error: Error) {
