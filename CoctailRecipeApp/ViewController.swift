@@ -81,9 +81,12 @@ class ViewController: UIViewController, UIScrollViewDelegate, UITextFieldDelegat
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
-        if let coctail = searchTextField.text {
+        let trimmedStr = searchTextField.text?.trimmingCharacters(in: .whitespaces)
+        if let coctail = trimmedStr {
             coctailManager.getCoctail(coctailName: coctail)
+            print(trimmedStr)
         }
+        
         searchTextField.text = ""
     }
     

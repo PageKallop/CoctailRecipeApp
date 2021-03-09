@@ -8,10 +8,7 @@
 import UIKit
 
 class CoctailRecipeView: UIViewController, UITextFieldDelegate, CoctailManagerDelegate {
-    
 
- 
-    
     let label: UILabel = {
     let label = UILabel(frame: CGRect(x: 50, y: 100, width: 300, height: 100))
         label.backgroundColor = UIColor.white
@@ -27,32 +24,21 @@ class CoctailRecipeView: UIViewController, UITextFieldDelegate, CoctailManagerDe
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    
-        
 
         coctailManager.delegate = self
+        view.addSubview(label)
    
         view.backgroundColor = .gray
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Back", style: .plain, target: self, action: #selector(dismissSelf))
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        print("out here\(coctailManager.coctailURL)")
-        view.addSubview(label)
-    }
     
-
-    
-    @objc private func dismissSelf(){
+    @objc private func dismissSelf() {
         dismiss(animated: true, completion: nil)
     }
     
     
     func didLoadRecipe(_ coctailManager: CoctailManager, coctailRecipe: CoctailModel) {
-
-            self.label.text = coctailRecipe.coctailName
-
-            print("i i i i i i i i i\(coctailRecipe.coctailName)")
 
     }
 

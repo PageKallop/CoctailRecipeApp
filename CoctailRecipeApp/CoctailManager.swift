@@ -16,12 +16,13 @@ struct CoctailManager {
     
   
  let coctailURL = "https://www.thecocktaildb.com/api/json/v1/1/search.php?s"
-    
+ 
     var delegate: CoctailManagerDelegate?
     
     func getCoctail(coctailName: String) {
         
         let urlString = "\(coctailURL)=\(coctailName)"
+       
         performRequest(with: urlString)
     }
     
