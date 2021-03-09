@@ -28,7 +28,7 @@ class CoctailRecipeView: UIViewController, UITextFieldDelegate, CoctailManagerDe
         coctailManager.delegate = self
         view.addSubview(label)
    
-        view.backgroundColor = .gray
+        view.backgroundColor = UIColor(red: 94.12/100, green: 89.41/100, blue: 84.31/100, alpha: 1)
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Back", style: .plain, target: self, action: #selector(dismissSelf))
     }
     

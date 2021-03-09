@@ -15,6 +15,7 @@ struct UIElements {
 //        imageView.frame = CGRect(x: 5, y: 5, width: 50, height: 50)
         
         imageView.contentMode = .scaleAspectFill
+        imageView.layer.cornerRadius = imageView.frame.size.height/5
         imageView.clipsToBounds = true
         return imageView
         
@@ -23,6 +24,7 @@ struct UIElements {
         let imageView1 = UIImageView(image: #imageLiteral(resourceName: "shot"))
 //        imageView1.frame = CGRect(x: 5, y: 5, width: 50, height: 50)
         imageView1.contentMode = .scaleAspectFill
+        imageView1.layer.cornerRadius = imageView1.frame.size.height/5
         imageView1.clipsToBounds = true
         return imageView1
         
@@ -32,6 +34,7 @@ struct UIElements {
 //        imageView2.frame = CGRect(x: 5, y: 5, width: 50, height: 50)
         
         imageView2.contentMode = .scaleAspectFill
+        imageView2.layer.cornerRadius = imageView2.frame.size.height/5
         imageView2.clipsToBounds = true
         return imageView2
         
