@@ -81,12 +81,11 @@ class ViewController: UIViewController, UIScrollViewDelegate, UITextFieldDelegat
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
-        let trimmedStr = searchTextField.text?.trimmingCharacters(in: .whitespaces)
-        if let coctail = trimmedStr {
-            coctailManager.getCoctail(coctailName: coctail)
-            print(trimmedStr)
-        }
+       
+        let coctail = searchTextField.text
         
+        coctailManager.getCoctail(coctailName: coctail ?? "Drink")
+
         searchTextField.text = ""
     }
     
@@ -100,7 +99,7 @@ class ViewController: UIViewController, UIScrollViewDelegate, UITextFieldDelegat
         let containerView = UIView()
         view.addSubview(containerView)
         containerView.translatesAutoresizingMaskIntoConstraints = false
-        containerView.backgroundColor = .black
+        containerView.backgroundColor = UIColor(red: 94.12/255, green: 84.41/255, blue: 84.31/255, alpha: 0.1)
         containerView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
         containerView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         containerView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
@@ -113,7 +112,7 @@ class ViewController: UIViewController, UIScrollViewDelegate, UITextFieldDelegat
    
 
         containerView.addSubview(scrollView)
-        scrollView.backgroundColor = UIColor.black
+        scrollView.backgroundColor = UIColor.clear
         scrollView.topAnchor.constraint(equalTo: containerView.safeAreaLayoutGuide.topAnchor,constant: 20).isActive = true
         scrollView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor).isActive = true
         scrollView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor).isActive = true
@@ -122,6 +121,7 @@ class ViewController: UIViewController, UIScrollViewDelegate, UITextFieldDelegat
        
         
         scrollView.addSubview(stackView)
+        stackView.backgroundColor = UIColor.clear
         stackView.addArrangedSubview(imageView)
         stackView.addArrangedSubview(imageView1)
         stackView.addArrangedSubview(imageView2)
@@ -137,7 +137,7 @@ class ViewController: UIViewController, UIScrollViewDelegate, UITextFieldDelegat
         animationView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor).isActive = true
         animationView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor).isActive = true
         animationView.bottomAnchor.constraint(equalTo: containerView.bottomAnchor).isActive = true
-        animationView.backgroundColor = UIColor.black
+        animationView.backgroundColor = UIColor.clear
         animationView.addSubview(bar)
         bar.translatesAutoresizingMaskIntoConstraints = false
         bar.topAnchor.constraint(equalTo: animationView.topAnchor,constant: 15).isActive = true
@@ -163,7 +163,7 @@ class ViewController: UIViewController, UIScrollViewDelegate, UITextFieldDelegat
     func bottomLayout() {
         let bottomContainerView = UIView()
         view.addSubview(bottomContainerView)
-        bottomContainerView.backgroundColor = UIColor.black
+        bottomContainerView.backgroundColor = UIColor(red: 94.12/255, green: 84.41/255, blue: 84.31/255, alpha: 0.2)
         bottomContainerView.translatesAutoresizingMaskIntoConstraints = false
         bottomContainerView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
         bottomContainerView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true

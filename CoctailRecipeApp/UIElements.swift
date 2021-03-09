@@ -80,13 +80,13 @@ struct UIElements {
         searchTextField.rightView = paddingView
         searchTextField.leftViewMode = UITextField.ViewMode.always
         searchTextField.rightViewMode = UITextField.ViewMode.always
-        searchTextField.backgroundColor = UIColor(red: 240/255, green: 230/255, blue: 140/255, alpha: 0.5)
+        searchTextField.backgroundColor = UIColor(red: 255/255, green: 130/255, blue: 113/255, alpha: 0.2)
         return searchTextField
     }()
     
     let findButton : UIButton = {
         let findButton = UIButton(frame: CGRect(x: 100, y: 100, width: 130, height: 75))
-        findButton.backgroundColor = UIColor(red: 240/255, green: 230/255, blue: 140/255, alpha: 0.5)
+        findButton.backgroundColor = UIColor(red: 255/255, green: 130/255, blue: 113/255, alpha: 0.2)
         findButton.setTitle("Mixologist...", for: .normal)
         findButton.titleLabel?.font = UIFont(name: "SnellRoundhand", size: 25)
         findButton.setTitleColor(UIColor.black, for: .normal)
