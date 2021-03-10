@@ -13,5 +13,6 @@ struct CoctailModel {
     let instructions : String?
     let ingredient : [String?]
     let measurements : [String?]
+    let glassType : String?
     
 }

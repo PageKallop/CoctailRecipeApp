@@ -59,12 +59,13 @@ struct CoctailManager {
            
             let drinkName = decodedData.drinks[0].strDrink!
             let instructions = decodedData.drinks[0].strInstructions
+            let glass = decodedData.drinks[0].strGlass
             //creates ingredient array
             let ingredient = [decodedData.drinks[0].strIngredient1, decodedData.drinks[0].strIngredient2, decodedData.drinks[0].strIngredient3, decodedData.drinks[0].strIngredient4, decodedData.drinks[0].strIngredient5, decodedData.drinks[0].strIngredient6, decodedData.drinks[0].strIngredient7, decodedData.drinks[0].strIngredient8, decodedData.drinks[0].strIngredient9, decodedData.drinks[0].strIngredient10, decodedData.drinks[0].strIngredient11, decodedData.drinks[0].strIngredient12, decodedData.drinks[0].strIngredient13, decodedData.drinks[0].strIngredient14, decodedData.drinks[0].strIngredient15]
             //creates measurement array
             let measurements =  [decodedData.drinks[0].strMeasure1, decodedData.drinks[0].strMeasure2, decodedData.drinks[0].strMeasure3, decodedData.drinks[0].strMeasure4, decodedData.drinks[0].strMeasure5, decodedData.drinks[0].strMeasure6, decodedData.drinks[0].strMeasure7, decodedData.drinks[0].strMeasure8, decodedData.drinks[0].strMeasure9, decodedData.drinks[0].strMeasure10, decodedData.drinks[0].strMeasure11, decodedData.drinks[0].strMeasure12, decodedData.drinks[0].strMeasure13, decodedData.drinks[0].strMeasure14, decodedData.drinks[0].strMeasure15]
-    
-            let coctailRecipe = CoctailModel(coctailName: drinkName, instructions: instructions, ingredient: ingredient, measurements: measurements)
+        
+            let coctailRecipe = CoctailModel(coctailName: drinkName, instructions: instructions, ingredient: ingredient, measurements: measurements, glassType: glass)
            
             print(ingredient)
             print(measurements)
