@@ -196,7 +196,11 @@ class ViewController: UIViewController, UIScrollViewDelegate, UITextFieldDelegat
           
 //            let recipeVC = CoctailRecipeView()
 //            recipeVC.label.text = "HERE"
-            recipeVC.label.text = coctailRecipe.coctailName
+            recipeVC.drinkLabel.text = coctailRecipe.coctailName
+            //arranges array strings into a vertical list 
+            let verticals = coctailRecipe.ingredient.map { "\($0)" }.joined(separator: "\n")
+           
+            print(verticals)
             print("all \(coctailRecipe.coctailName)")
         }
         
