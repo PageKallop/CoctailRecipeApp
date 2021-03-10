@@ -58,9 +58,12 @@ struct CoctailManager {
             let decodedData = try decoder.decode(CoctailData.self, from: coctailData)
            
             let drinkName = decodedData.drinks[0].strDrink!
+            let instructions = decodedData.drinks[0].strInstructions
+            let ingredient = [decodedData.drinks[0].strIngredient1, decodedData.drinks[0].strIngredient2, decodedData.drinks[0].strIngredient3, decodedData.drinks[0].strIngredient4, decodedData.drinks[0].strIngredient5, decodedData.drinks[0].strIngredient6, decodedData.drinks[0].strIngredient7, decodedData.drinks[0].strIngredient8, decodedData.drinks[0].strIngredient9, decodedData.drinks[0].strIngredient10, decodedData.drinks[0].strIngredient11, decodedData.drinks[0].strIngredient12, decodedData.drinks[0].strIngredient13, decodedData.drinks[0].strIngredient14, decodedData.drinks[0].strIngredient15,]
     
-            let coctailRecipe = CoctailModel(coctailName: drinkName)
+            let coctailRecipe = CoctailModel(coctailName: drinkName, instructions: instructions, ingredient: ingredient)
            
+            print(ingredient)
             print(coctailRecipe.coctailName)
             return coctailRecipe
             

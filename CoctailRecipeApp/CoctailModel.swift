@@ -10,5 +10,7 @@ import Foundation
 struct CoctailModel {
     
     let coctailName : String
+    let instructions : String?
+    let ingredient : [String?]
     
 }

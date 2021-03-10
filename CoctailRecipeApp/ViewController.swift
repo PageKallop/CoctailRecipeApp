@@ -24,6 +24,8 @@ class ViewController: UIViewController, UIScrollViewDelegate, UITextFieldDelegat
 
     var coctailManager = CoctailManager()
 //    var uiElement = UIElements()
+    
+    
 
     var imageView = UIElements().imageView
     var imageView1 = UIElements().imageView1
