@@ -101,9 +101,10 @@ struct UIElements {
     
     //CoctailRecipeView UIElements
     let drinkLabel: UILabel = {
-    let label = UILabel(frame: CGRect(x: 50, y: 100, width: 300, height: 100))
-        label.backgroundColor = UIColor(red: 94.12/100, green: 89.41/100, blue: 84.31/100, alpha: 1)
-        label.font = UIFont(name: "ArialRoundedMTBold", size: 45.0)
+    let label = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 25))
+        //label.backgroundColor = UIColor(red: 94.12/100, green: 89.41/100, blue: 84.31/100, alpha: 1)
+        label.backgroundColor = UIColor.cyan
+        label.font = UIFont(name: "ArialRoundedMTBold", size: 25.0)
 
         return label
         
