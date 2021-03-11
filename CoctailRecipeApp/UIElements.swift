@@ -135,6 +135,10 @@ struct UIElements {
         ingredientLabel.backgroundColor = UIColor.cyan
         ingredientLabel.translatesAutoresizingMaskIntoConstraints = false
         ingredientLabel.font = UIFont(name: "TimesNewRoman", size: 15.0)
+        
+        
+        ingredientLabel.lineBreakMode = .byWordWrapping
+        ingredientLabel.numberOfLines = 0
         return ingredientLabel
     }()
     

@@ -200,7 +200,9 @@ class ViewController: UIViewController, UIScrollViewDelegate, UITextFieldDelegat
           
             //arranges array strings into a vertical list
             let ingredientList = coctailRecipe.ingredient.map { "\($0)" }.joined(separator: "\n")
-            recipeVC.ingredientLabel.text = ingredientList
+           
+            recipeVC.ingredientLabel.text = ingredientList ?? "Drink"
+            
             print(ingredientList)
             print("all \(coctailRecipe.coctailName)")
         }
