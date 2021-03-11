@@ -68,8 +68,7 @@ struct CoctailManager {
         
             let coctailRecipe = CoctailModel(coctailName: drinkName, instructions: instructions, ingredient: ingredient, measurements: measurements, glassType: glass)
          
-            print(vertical)
-            print(coctailRecipe.coctailName)
+     
             return coctailRecipe
             
         } catch {

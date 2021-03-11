@@ -101,13 +101,49 @@ struct UIElements {
     
     //CoctailRecipeView UIElements
     let drinkLabel: UILabel = {
-    let label = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 25))
+    let drinkLabel = UILabel()
         //label.backgroundColor = UIColor(red: 94.12/100, green: 89.41/100, blue: 84.31/100, alpha: 1)
-        label.backgroundColor = UIColor.cyan
-        label.font = UIFont(name: "ArialRoundedMTBold", size: 25.0)
+        drinkLabel.backgroundColor = UIColor.cyan
+        drinkLabel.textAlignment = .center
+        drinkLabel.translatesAutoresizingMaskIntoConstraints = false
+        drinkLabel.font = UIFont(name: "ArialRoundedMTBold", size: 25.0)
 
-        return label
+        return drinkLabel
         
+    }()
+    
+    let directionLabel: UILabel = {
+    let directionLabel = UILabel()
+        directionLabel.backgroundColor = UIColor.cyan
+        directionLabel.translatesAutoresizingMaskIntoConstraints = false
+        directionLabel.font = UIFont(name: "TimesNewRoman", size: 15.0)
+        directionLabel.lineBreakMode = .byWordWrapping
+        directionLabel.numberOfLines = 0
+        return directionLabel
+    }()
+    
+    let glassLabel: UILabel = {
+        let glassLabel = UILabel()
+        glassLabel.backgroundColor = UIColor.cyan
+        glassLabel.translatesAutoresizingMaskIntoConstraints = false
+        glassLabel.font = UIFont(name: "TimesNewRoman", size: 15.0)
+        return glassLabel
+    }()
+    
+    let ingredientLabel: UILabel = {
+        let ingredientLabel = UILabel()
+        ingredientLabel.backgroundColor = UIColor.cyan
+        ingredientLabel.translatesAutoresizingMaskIntoConstraints = false
+        ingredientLabel.font = UIFont(name: "TimesNewRoman", size: 15.0)
+        return ingredientLabel
+    }()
+    
+    let measurementLabel: UILabel = {
+        let measurementLabel = UILabel()
+        measurementLabel.backgroundColor = UIColor.cyan
+        measurementLabel.translatesAutoresizingMaskIntoConstraints = false
+        measurementLabel.font = UIFont(name: "TimesNewRoman", size: 15.0)
+        return measurementLabel
     }()
     
 }

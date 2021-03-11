@@ -193,14 +193,15 @@ class ViewController: UIViewController, UIScrollViewDelegate, UITextFieldDelegat
             let navVC = UINavigationController(rootViewController: recipeVC)
             navVC.modalPresentationStyle = .fullScreen
             self.present(navVC, animated: true)
-          
-//            let recipeVC = CoctailRecipeView()
-//            recipeVC.label.text = "HERE"
+
             recipeVC.drinkLabel.text = coctailRecipe.coctailName
-            //arranges array strings into a vertical list 
-            let verticals = coctailRecipe.ingredient.map { "\($0)" }.joined(separator: "\n")
-           
-            print(verticals)
+            recipeVC.glassLabel.text = coctailRecipe.glassType
+//            recipeVC.directionLabel.text = coctailRecipe.instructions
+          
+            //arranges array strings into a vertical list
+            let ingredientList = coctailRecipe.ingredient.map { "\($0)" }.joined(separator: "\n")
+            recipeVC.ingredientLabel.text = ingredientList
+            print(ingredientList)
             print("all \(coctailRecipe.coctailName)")
         }
         

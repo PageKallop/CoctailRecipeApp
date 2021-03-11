@@ -13,6 +13,10 @@ class CoctailRecipeView: UIViewController, UITextFieldDelegate, CoctailManagerDe
     var coctailManager = CoctailManager()
     var theDrinks = [Drinks]()
     var drinkLabel = UIElements().drinkLabel
+    var directionLabel = UIElements().directionLabel
+    var glassLabel = UIElements().glassLabel
+    var ingredientLabel = UIElements().ingredientLabel
+    var measurementLabel = UIElements().measurementLabel
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,10 +25,20 @@ class CoctailRecipeView: UIViewController, UITextFieldDelegate, CoctailManagerDe
         navigationController?.navigationBar.barTintColor = UIColor(red: 94.12/100, green: 89.41/100, blue: 84.31/100, alpha: 1)
         
         view.addSubview(drinkLabel)
+        view.addSubview(glassLabel)
+        view.addSubview(ingredientLabel)
+        view.addSubview(measurementLabel)
+    
    
         view.backgroundColor = UIColor(red: 94.12/100, green: 89.41/100, blue: 84.31/100, alpha: 1)
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Back", style: .plain, target: self, action: #selector(dismissSelf))
-        drinkLabel.anchor(top: view.topAnchor, leading: view.leadingAnchor, bottom: view.safeAreaLayoutGuide.bottomAnchor, trailing: view.trailingAnchor, padding: .init(top: 10, left: 100, bottom: 600, right: 100))
+        drinkLabel.anchor(top: view.topAnchor, leading: view.leadingAnchor, bottom: view.safeAreaLayoutGuide.bottomAnchor, trailing: view.trailingAnchor, padding: .init(top: 100, left: 100, bottom: 700, right: 100))
+        
+        glassLabel.anchor(top: drinkLabel.bottomAnchor, leading: view.leadingAnchor, bottom: view.bottomAnchor, trailing: view.trailingAnchor, padding: .init(top: 10, left: 50, bottom: 695, right: 50))
+        ingredientLabel.anchor(top: glassLabel.bottomAnchor, leading: view.leadingAnchor, bottom: view.bottomAnchor, trailing: view.trailingAnchor, padding: .init(top: 10, left: 25, bottom: 400, right: 200))
+        measurementLabel.anchor(top: glassLabel.bottomAnchor, leading: ingredientLabel.leadingAnchor, bottom: view.bottomAnchor, trailing: view.trailingAnchor, padding: .init(top: 10, left: 200, bottom: 400, right: 25))
+//        directionLabel.anchor(top: drinkLabel.bottomAnchor, leading: view.leadingAnchor, bottom: view.bottomAnchor, trailing: view.trailingAnchor, padding: .init(top: 5, left: 10, bottom: 500, right: 10))
+        
     }
     
     
@@ -35,6 +49,7 @@ class CoctailRecipeView: UIViewController, UITextFieldDelegate, CoctailManagerDe
     
     func didLoadRecipe(_ coctailManager: CoctailManager, coctailRecipe: CoctailModel) {
 
+        
     }
 
     func didFailWithError(error: Error) {
@@ -47,9 +62,7 @@ extension UIView {
     
     func anchor(top: NSLayoutYAxisAnchor, leading: NSLayoutXAxisAnchor, bottom: NSLayoutYAxisAnchor, trailing: NSLayoutXAxisAnchor, padding: UIEdgeInsets = .zero) {
         translatesAutoresizingMaskIntoConstraints = false
-        
 
-        
         topAnchor.constraint(equalTo: top, constant: padding.top).isActive = true
         leadingAnchor.constraint(equalTo: leading, constant: padding.left).isActive = true
         bottomAnchor.constraint(equalTo: bottom, constant: -padding.bottom).isActive = true
