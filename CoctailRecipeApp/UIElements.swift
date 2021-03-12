@@ -106,7 +106,8 @@ struct UIElements {
         drinkLabel.backgroundColor = UIColor.cyan
         drinkLabel.textAlignment = .center
         drinkLabel.translatesAutoresizingMaskIntoConstraints = false
-        drinkLabel.font = UIFont(name: "ArialRoundedMTBold", size: 25.0)
+        drinkLabel.font = UIFont(name: "SnellRoundhand", size: 35)
+        
 
         return drinkLabel
         
@@ -125,6 +126,7 @@ struct UIElements {
     let glassLabel: UILabel = {
         let glassLabel = UILabel()
         glassLabel.backgroundColor = UIColor.cyan
+        glassLabel.textAlignment = .center
         glassLabel.translatesAutoresizingMaskIntoConstraints = false
         glassLabel.font = UIFont(name: "TimesNewRoman", size: 15.0)
         return glassLabel
@@ -134,7 +136,8 @@ struct UIElements {
         let ingredientLabel = UILabel()
         ingredientLabel.backgroundColor = UIColor.cyan
         ingredientLabel.translatesAutoresizingMaskIntoConstraints = false
-        ingredientLabel.font = .systemFont(ofSize: 30, weight: .bold)
+        ingredientLabel.font = UIFont(name: "SnellRoundhand", size: 15)
+//        ingredientLabel.font = .systemFont(ofSize: 30, weight: .bold)
         
         
         
