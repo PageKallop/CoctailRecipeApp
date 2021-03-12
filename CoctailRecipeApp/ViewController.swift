@@ -84,8 +84,16 @@ class ViewController: UIViewController, UIScrollViewDelegate, UITextFieldDelegat
     
     func textFieldDidEndEditing(_ textField: UITextField) {
        
-        let coctail = searchTextField.text
+//         let coctail = searchTextField.text
         
+        let drink = searchTextField.text
+        let coctail = drink!.replacingOccurrences(of: " ", with: "%20")
+        print(coctail)
+        
+        //trying to remove spaces
+        //let drink = searchTextField.text!
+        //let coctail = String(drink.filter { !" \n\t\r".contains($0)})
+        //
         coctailManager.getCoctail(coctailName: coctail ?? "Drink")
 
         searchTextField.text = ""

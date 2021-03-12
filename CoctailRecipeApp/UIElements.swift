@@ -134,7 +134,8 @@ struct UIElements {
         let ingredientLabel = UILabel()
         ingredientLabel.backgroundColor = UIColor.cyan
         ingredientLabel.translatesAutoresizingMaskIntoConstraints = false
-        ingredientLabel.font = UIFont(name: "TimesNewRoman", size: 15.0)
+        ingredientLabel.font = .systemFont(ofSize: 30, weight: .bold)
+        
         
         
         ingredientLabel.lineBreakMode = .byWordWrapping
