@@ -9,6 +9,8 @@ import Foundation
 import UIKit 
 
 struct UIElements {
+    
+    
     //ViewController UIElements
     let imageView: UIImageView = {
     let imageView = UIImageView(image: #imageLiteral(resourceName: "shot"))
@@ -136,13 +138,15 @@ struct UIElements {
         let ingredientLabel = UILabel()
         ingredientLabel.backgroundColor = UIColor.cyan
         ingredientLabel.translatesAutoresizingMaskIntoConstraints = false
-        ingredientLabel.font = UIFont(name: "SnellRoundhand", size: 15)
+        ingredientLabel.font = UIFont(name: "PingFang HK", size: 20)
 //        ingredientLabel.font = .systemFont(ofSize: 30, weight: .bold)
         
         
         
         ingredientLabel.lineBreakMode = .byWordWrapping
         ingredientLabel.numberOfLines = 0
+        ingredientLabel.sizeToFit()
+      
         return ingredientLabel
     }()
     
@@ -150,7 +154,18 @@ struct UIElements {
         let measurementLabel = UILabel()
         measurementLabel.backgroundColor = UIColor.cyan
         measurementLabel.translatesAutoresizingMaskIntoConstraints = false
-        measurementLabel.font = UIFont(name: "TimesNewRoman", size: 15.0)
+        measurementLabel.font = UIFont(name: "PingFang HK", size: 20)
+        measurementLabel.lineBreakMode = .byWordWrapping
+        measurementLabel.numberOfLines = 0
+        
+        
+        var maximumLabelSize: CGSize = CGSize(width: 280, height: 9999)
+        var expectedLabelSize: CGSize = measurementLabel.sizeThatFits(maximumLabelSize)
+        var newframe: CGRect = measurementLabel.frame
+        newframe.size.height = expectedLabelSize.height
+        measurementLabel.frame = newframe
+        
+        
         return measurementLabel
     }()
     

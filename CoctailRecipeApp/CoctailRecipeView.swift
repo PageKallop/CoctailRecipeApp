@@ -28,6 +28,7 @@ class CoctailRecipeView: UIViewController, UITextFieldDelegate, CoctailManagerDe
         view.addSubview(glassLabel)
         view.addSubview(ingredientLabel)
         view.addSubview(measurementLabel)
+        ingredientLabel.sizeToFit()
     
    
         view.backgroundColor = UIColor(red: 94.12/100, green: 89.41/100, blue: 84.31/100, alpha: 1)
@@ -35,8 +36,8 @@ class CoctailRecipeView: UIViewController, UITextFieldDelegate, CoctailManagerDe
         drinkLabel.anchor(top: view.topAnchor, leading: view.leadingAnchor, bottom: view.safeAreaLayoutGuide.bottomAnchor, trailing: view.trailingAnchor, padding: .init(top: 100, left: 100, bottom: 700, right: 100))
         
         glassLabel.anchor(top: drinkLabel.bottomAnchor, leading: view.leadingAnchor, bottom: view.bottomAnchor, trailing: view.trailingAnchor, padding: .init(top: 10, left: 50, bottom: 695, right: 50))
-        ingredientLabel.anchor(top: glassLabel.bottomAnchor, leading: view.leadingAnchor, bottom: view.bottomAnchor, trailing: view.trailingAnchor, padding: .init(top: 10, left: 25, bottom: 400, right: 200))
-        measurementLabel.anchor(top: glassLabel.bottomAnchor, leading: ingredientLabel.leadingAnchor, bottom: view.bottomAnchor, trailing: view.trailingAnchor, padding: .init(top: 10, left: 200, bottom: 400, right: 25))
+        ingredientLabel.anchor(top: glassLabel.bottomAnchor, leading: view.leadingAnchor, bottom: view.bottomAnchor, trailing: view.trailingAnchor, padding: .init(top: 10, left: 25, bottom: 500, right: 200))
+        measurementLabel.anchor(top: glassLabel.bottomAnchor, leading: ingredientLabel.leadingAnchor, bottom: view.bottomAnchor, trailing: view.trailingAnchor, padding: .init(top: 10, left: 200, bottom: 500, right: 25))
 //        directionLabel.anchor(top: drinkLabel.bottomAnchor, leading: view.leadingAnchor, bottom: view.bottomAnchor, trailing: view.trailingAnchor, padding: .init(top: 5, left: 10, bottom: 500, right: 10))
         
     }

@@ -210,13 +210,17 @@ class ViewController: UIViewController, UIScrollViewDelegate, UITextFieldDelegat
            
 //            let list = ingredientList.compactMap { $0 }
 //            let ingredientList = coctailRecipe.ingredient.map { "\($0)" }.joined(separator: "\n")
-            let ingredientList = coctailRecipe.ingredient.compactMap { $0 }
-            let list = ingredientList.map { "\($0)" }.joined(separator: "\n")
-        
-                recipeVC.ingredientLabel.text = list
-    
-           
+            let list = coctailRecipe.ingredient.compactMap { $0 }
+            let ingredientList = list.map { "\($0)" }.joined(separator: "\n")
             
+            let measurments = coctailRecipe.measurements.compactMap { $0 }
+            let measurmentList = measurments.map { "\($0)" }.joined(separator: "\n")
+            
+        
+            recipeVC.ingredientLabel.text = ingredientList
+            recipeVC.measurementLabel.text = measurmentList
+            
+   
             print(ingredientList)
             print("all \(coctailRecipe.coctailName)")
         }
