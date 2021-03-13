@@ -136,13 +136,10 @@ struct UIElements {
     
     let ingredientLabel: UILabel = {
         let ingredientLabel = UILabel()
+        ingredientLabel.frame = CGRect(x: 0, y: 0, width: ingredientLabel.intrinsicContentSize.width, height: ingredientLabel.intrinsicContentSize.height)
         ingredientLabel.backgroundColor = UIColor.cyan
         ingredientLabel.translatesAutoresizingMaskIntoConstraints = false
         ingredientLabel.font = UIFont(name: "PingFang HK", size: 20)
-//        ingredientLabel.font = .systemFont(ofSize: 30, weight: .bold)
-        
-        
-        
         ingredientLabel.lineBreakMode = .byWordWrapping
         ingredientLabel.numberOfLines = 0
         ingredientLabel.sizeToFit()
@@ -152,19 +149,14 @@ struct UIElements {
     
     let measurementLabel: UILabel = {
         let measurementLabel = UILabel()
+        measurementLabel.frame = CGRect(x: 0, y: 0, width: measurementLabel.intrinsicContentSize.width, height: measurementLabel.intrinsicContentSize.height)
         measurementLabel.backgroundColor = UIColor.cyan
         measurementLabel.translatesAutoresizingMaskIntoConstraints = false
         measurementLabel.font = UIFont(name: "PingFang HK", size: 20)
         measurementLabel.lineBreakMode = .byWordWrapping
         measurementLabel.numberOfLines = 0
-        
-        
-        var maximumLabelSize: CGSize = CGSize(width: 280, height: 9999)
-        var expectedLabelSize: CGSize = measurementLabel.sizeThatFits(maximumLabelSize)
-        var newframe: CGRect = measurementLabel.frame
-        newframe.size.height = expectedLabelSize.height
-        measurementLabel.frame = newframe
-        
+        measurementLabel.sizeToFit()
+  
         
         return measurementLabel
     }()
