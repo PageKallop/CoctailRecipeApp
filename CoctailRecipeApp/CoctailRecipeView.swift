@@ -9,7 +9,7 @@ import UIKit
 
 class CoctailRecipeView: UIViewController, UITextFieldDelegate, CoctailManagerDelegate {
 
-    
+    //UIElements from library 
     var coctailManager = CoctailManager()
     var theDrinks = [Drinks]()
     var drinkLabel = UIElements().drinkLabel
@@ -47,9 +47,9 @@ class CoctailRecipeView: UIViewController, UITextFieldDelegate, CoctailManagerDe
         
         glassLabel.anchor(top: drinkLabel.bottomAnchor, leading: view.leadingAnchor, bottom: view.bottomAnchor, trailing: view.trailingAnchor, padding: .init(top: 20, left: 50, bottom: 695, right: 50))
         
-        ingredientView.anchor(top: glassLabel.bottomAnchor, leading: view.leadingAnchor, bottom: view.bottomAnchor, trailing: measurementView.trailingAnchor, padding: .init(top: 20, left: 25, bottom: 500, right: 10))
+        ingredientView.anchor(top: glassLabel.bottomAnchor, leading: view.leadingAnchor, bottom: view.bottomAnchor, trailing: measurementView.trailingAnchor, padding: .init(top: 20, left: 55, bottom: 500, right: 0))
         
-        measurementView.anchor(top: glassLabel.bottomAnchor, leading: ingredientView.leadingAnchor, bottom: view.bottomAnchor, trailing: view.trailingAnchor, padding: .init(top: 20, left: 200, bottom: 500, right: 1))
+        measurementView.anchor(top: glassLabel.bottomAnchor, leading: ingredientView.leadingAnchor, bottom: view.bottomAnchor, trailing: view.trailingAnchor, padding: .init(top: 20, left: 175, bottom: 500, right: 1))
 //        directionLabel.anchor(top: drinkLabel.bottomAnchor, leading: view.leadingAnchor, bottom: view.bottomAnchor, trailing: view.trailingAnchor, padding: .init(top: 5, left: 10, bottom: 500, right: 10))
         
     }

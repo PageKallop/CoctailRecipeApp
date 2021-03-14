@@ -109,8 +109,7 @@ struct UIElements {
         drinkLabel.textAlignment = .center
         drinkLabel.translatesAutoresizingMaskIntoConstraints = false
         drinkLabel.font = UIFont(name: "SnellRoundhand", size: 35)
-        
-
+         
         return drinkLabel
         
     }()
