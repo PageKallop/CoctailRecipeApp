@@ -105,7 +105,7 @@ struct UIElements {
     let drinkLabel: UILabel = {
     let drinkLabel = UILabel()
         //label.backgroundColor = UIColor(red: 94.12/100, green: 89.41/100, blue: 84.31/100, alpha: 1)
-        drinkLabel.backgroundColor = UIColor.cyan
+        drinkLabel.backgroundColor = UIColor.clear
         drinkLabel.textAlignment = .center
         drinkLabel.translatesAutoresizingMaskIntoConstraints = false
         drinkLabel.font = UIFont(name: "SnellRoundhand", size: 35)
@@ -127,7 +127,7 @@ struct UIElements {
     
     let glassLabel: UILabel = {
         let glassLabel = UILabel()
-        glassLabel.backgroundColor = UIColor.cyan
+        glassLabel.backgroundColor = UIColor.clear
         glassLabel.textAlignment = .center
         glassLabel.translatesAutoresizingMaskIntoConstraints = false
         glassLabel.font = UIFont(name: "TimesNewRoman", size: 15.0)
@@ -137,9 +137,9 @@ struct UIElements {
     let ingredientLabel: UILabel = {
         let ingredientLabel = UILabel()
         ingredientLabel.frame = CGRect(x: 0, y: 0, width: ingredientLabel.intrinsicContentSize.width, height: ingredientLabel.intrinsicContentSize.height)
-        ingredientLabel.backgroundColor = UIColor.cyan
+        ingredientLabel.backgroundColor = UIColor.clear
         ingredientLabel.translatesAutoresizingMaskIntoConstraints = false
-        ingredientLabel.font = UIFont(name: "PingFang HK", size: 20)
+        ingredientLabel.font = UIFont(name: "PingFang HK", size: 30)
         ingredientLabel.lineBreakMode = .byWordWrapping
         ingredientLabel.numberOfLines = 0
         ingredientLabel.sizeToFit()
@@ -150,9 +150,9 @@ struct UIElements {
     let measurementLabel: UILabel = {
         let measurementLabel = UILabel()
         measurementLabel.frame = CGRect(x: 0, y: 0, width: measurementLabel.intrinsicContentSize.width, height: measurementLabel.intrinsicContentSize.height)
-        measurementLabel.backgroundColor = UIColor.cyan
+        measurementLabel.backgroundColor = UIColor.clear
         measurementLabel.translatesAutoresizingMaskIntoConstraints = false
-        measurementLabel.font = UIFont(name: "PingFang HK", size: 20)
+        measurementLabel.font = UIFont(name: "PingFang HK", size: 30)
         measurementLabel.lineBreakMode = .byWordWrapping
         measurementLabel.numberOfLines = 0
         measurementLabel.sizeToFit()
