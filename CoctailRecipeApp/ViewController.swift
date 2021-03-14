@@ -204,6 +204,7 @@ class ViewController: UIViewController, UIScrollViewDelegate, UITextFieldDelegat
 
             recipeVC.drinkLabel.text = coctailRecipe.coctailName
             recipeVC.glassLabel.text = coctailRecipe.glassType
+            recipeVC.directionLabel.text = coctailRecipe.instructions
 //            recipeVC.directionLabel.text = coctailRecipe.instructions
           
             //arranges array strings into a vertical list

@@ -116,7 +116,7 @@ struct UIElements {
     
     let directionLabel: UILabel = {
     let directionLabel = UILabel()
-        directionLabel.backgroundColor = UIColor.cyan
+        directionLabel.backgroundColor = UIColor.clear
         directionLabel.translatesAutoresizingMaskIntoConstraints = false
         directionLabel.font = UIFont(name: "TimesNewRoman", size: 15.0)
         directionLabel.lineBreakMode = .byWordWrapping
