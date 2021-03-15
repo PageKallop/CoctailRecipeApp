@@ -10,7 +10,7 @@ import UIKit
 
 class ViewController: UIViewController, UIScrollViewDelegate, UITextFieldDelegate, CoctailManagerDelegate {
     
-    
+    //creates stack view
     lazy var stackView: UIStackView = {
         let stackView = UIStackView()
         stackView.translatesAutoresizingMaskIntoConstraints = false
@@ -21,12 +21,10 @@ class ViewController: UIViewController, UIScrollViewDelegate, UITextFieldDelegat
 
             return stackView
     }()
-
+    
     var coctailManager = CoctailManager()
-//    var uiElement = UIElements()
-    
-    
 
+    //adds elements from ui library
     var imageView = UIElements().imageView
     var imageView1 = UIElements().imageView1
     var imageView2 = UIElements().imageView2
@@ -37,20 +35,42 @@ class ViewController: UIViewController, UIScrollViewDelegate, UITextFieldDelegat
     
     override func viewDidLoad() {
         super.viewDidLoad()
- 
         
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(notification:)), name: UIResponder.keyboardDidShowNotification, object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(notification:)), name: UIResponder.keyboardDidShowNotification, object: nil)
+        
+ 
+        //sets delegate
         coctailManager.delegate = self
         
         searchTextField.delegate = self
         
         view.backgroundColor = UIColor.white
-   
+        //adds textfield to view
         self.view.addSubview(searchTextField)
         topLayout()
         bottomLayout()
         findButton.addTarget(self, action: #selector(findButtonAction(_ :)), for: .touchUpInside)
-     
 
+    }
+    @objc func keyboardWillShow(notification: NSNotification) {
+        guard let userInfo = notification.userInfo else {return}
+        guard let keyboardSize = userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue else {return}
+        let keyboardFrame = keyboardSize.cgRectValue
+        if self.view.frame.origin.y == 0 {
+            self.view.frame.origin.y -= keyboardFrame.height
+        }
+        
+    }
+    @objc func keyboardWillHide(notification: NSNotification) {
+        guard let userInfo = notification.userInfo else {return}
+        guard let keyboardSize = userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue else {return}
+        let keyboardFrame = keyboardSize.cgRectValue
+        if self.view.frame.origin.y != 0 {
+            self.view.frame.origin.y = keyboardFrame.height
+        }
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -59,7 +79,7 @@ class ViewController: UIViewController, UIScrollViewDelegate, UITextFieldDelegat
         topLayout()
      
     }
-    
+    //creates button functionality
     @objc func findButtonAction(_ sender: UIButton!) {
   
         searchTextField.endEditing(true)
@@ -72,7 +92,7 @@ class ViewController: UIViewController, UIScrollViewDelegate, UITextFieldDelegat
       
     }
     
-    
+    //creates textfield methods to check text field and send information search quiery
     func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
         if searchTextField.text != "" {
             return true
@@ -94,7 +114,7 @@ class ViewController: UIViewController, UIScrollViewDelegate, UITextFieldDelegat
         //let drink = searchTextField.text!
         //let coctail = String(drink.filter { !" \n\t\r".contains($0)})
         //
-        coctailManager.getCoctail(coctailName: coctail ?? "Drink")
+        coctailManager.getCoctail(coctailName: coctail)
 
         searchTextField.text = ""
     }
@@ -103,7 +123,7 @@ class ViewController: UIViewController, UIScrollViewDelegate, UITextFieldDelegat
         searchTextField.endEditing(true)
         return true 
     }
-  
+  //adds elements to top half of view
     func topLayout() {
        
         let containerView = UIView()
@@ -114,12 +134,6 @@ class ViewController: UIViewController, UIScrollViewDelegate, UITextFieldDelegat
         containerView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         containerView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
         containerView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.5).isActive = true
-//
-//        containerView.addSubview(martini)
-//
-        
-
-   
 
         containerView.addSubview(scrollView)
         scrollView.backgroundColor = UIColor.clear
@@ -156,20 +170,16 @@ class ViewController: UIViewController, UIScrollViewDelegate, UITextFieldDelegat
         bar.bottomAnchor.constraint(equalTo: animationView.bottomAnchor, constant: -15).isActive = true
         
         
-      
+      //creates animation
         UIView.animate(withDuration: 0.5) {
             
-//            self.martini.frame.origin.x = self.martini.frame.size.width
-            
-//            self.martini.center.x = containerView.bounds.width
-//
            self.bar.center.x -= containerView.bounds.width
             self.bar.frame.origin.x -= self.bar.frame.size.width
         }
 
      
 }
-    
+    //adds elements to bottom half of view
     func bottomLayout() {
         let bottomContainerView = UIView()
         view.addSubview(bottomContainerView)
@@ -179,8 +189,7 @@ class ViewController: UIViewController, UIScrollViewDelegate, UITextFieldDelegat
         bottomContainerView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         bottomContainerView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
         bottomContainerView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.5).isActive = true
-        
-        
+ 
         bottomContainerView.addSubview(searchTextField)
         searchTextField.topAnchor.constraint(equalTo: bottomContainerView.topAnchor, constant: 75).isActive = true
         searchTextField.leadingAnchor.constraint(equalTo: bottomContainerView.leadingAnchor,constant: 25).isActive = true
@@ -193,7 +202,7 @@ class ViewController: UIViewController, UIScrollViewDelegate, UITextFieldDelegat
         findButton.bottomAnchor.constraint(equalTo: bottomContainerView.bottomAnchor, constant: -100).isActive = true
         findButton.trailingAnchor.constraint(equalTo: bottomContainerView.trailingAnchor, constant: -30).isActive = true
     }
-    
+    //protocol that handles when data is returned
     func didLoadRecipe(_ coctailManager: CoctailManager, coctailRecipe: CoctailModel) {
         
         DispatchQueue.main.async {
@@ -201,23 +210,19 @@ class ViewController: UIViewController, UIScrollViewDelegate, UITextFieldDelegat
             let navVC = UINavigationController(rootViewController: recipeVC)
             navVC.modalPresentationStyle = .fullScreen
             self.present(navVC, animated: true)
-
+            //send data to coctail recipe vc
             recipeVC.drinkLabel.text = coctailRecipe.coctailName
             recipeVC.glassLabel.text = coctailRecipe.glassType
             recipeVC.directionLabel.text = coctailRecipe.instructions
-//            recipeVC.directionLabel.text = coctailRecipe.instructions
-          
-            //arranges array strings into a vertical list
-           
-//            let list = ingredientList.compactMap { $0 }
-//            let ingredientList = coctailRecipe.ingredient.map { "\($0)" }.joined(separator: "\n")
+
+            //sorts the data returned
             let list = coctailRecipe.ingredient.compactMap { $0 }
             let ingredientList = list.map { "\($0)" }.joined(separator: "\n")
             
             let measurments = coctailRecipe.measurements.compactMap { $0 }
             let measurmentList = measurments.map { "\($0)" }.joined(separator: "\n")
             
-        
+            //send data to coctail recipe vc
             recipeVC.ingredientLabel.text = ingredientList
             recipeVC.measurementLabel.text = measurmentList
             
