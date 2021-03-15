@@ -126,7 +126,7 @@ struct UIElements {
     
     let glassLabel: UILabel = {
         let glassLabel = UILabel()
-        glassLabel.backgroundColor = UIColor.clear
+        glassLabel.backgroundColor = .clear
         glassLabel.textAlignment = .center
         glassLabel.translatesAutoresizingMaskIntoConstraints = false
         glassLabel.font = UIFont(name: "TimesNewRoman", size: 15.0)
@@ -135,8 +135,8 @@ struct UIElements {
     
     let ingredientLabel: UILabel = {
         let ingredientLabel = UILabel()
-        ingredientLabel.frame = CGRect(x: 0, y: 0, width: ingredientLabel.intrinsicContentSize.width, height: ingredientLabel.intrinsicContentSize.height)
-        ingredientLabel.backgroundColor = UIColor.clear
+        ingredientLabel.frame = CGRect(x: 50, y: 50, width: ingredientLabel.intrinsicContentSize.width, height: ingredientLabel.intrinsicContentSize.height)
+        ingredientLabel.backgroundColor = UIColor(red: 238/255, green: 235/255, blue: 211/255, alpha: 1)
         ingredientLabel.translatesAutoresizingMaskIntoConstraints = false
         ingredientLabel.font = UIFont(name: "PingFang HK", size: 30)
         ingredientLabel.lineBreakMode = .byWordWrapping
@@ -148,8 +148,8 @@ struct UIElements {
     
     let measurementLabel: UILabel = {
         let measurementLabel = UILabel()
-        measurementLabel.frame = CGRect(x: 0, y: 0, width: measurementLabel.intrinsicContentSize.width, height: measurementLabel.intrinsicContentSize.height)
-        measurementLabel.backgroundColor = UIColor.clear
+        measurementLabel.frame = CGRect(x: 50, y: 50, width: measurementLabel.intrinsicContentSize.width, height: measurementLabel.intrinsicContentSize.height)
+        measurementLabel.backgroundColor = UIColor(red: 238/255, green: 235/255, blue: 211/255, alpha: 1)
         measurementLabel.translatesAutoresizingMaskIntoConstraints = false
         measurementLabel.font = UIFont(name: "PingFang HK", size: 30)
         measurementLabel.lineBreakMode = .byWordWrapping
