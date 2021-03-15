@@ -43,7 +43,7 @@ struct UIElements {
     }()
     
     let bar : UIImageView = {
-        let martini = UIImageView(image: #imageLiteral(resourceName: "500_F_259311032_KWupNx0SbrWLaBZHeGpDT3krtxC7PkCZ"))
+        let martini = UIImageView(image: #imageLiteral(resourceName: "glass.jpeg"))
         martini.frame = CGRect(x: 100, y: 100, width: 50, height: 50)
         return martini
     }()
@@ -161,3 +161,4 @@ struct UIElements {
     }()
     
 }
+

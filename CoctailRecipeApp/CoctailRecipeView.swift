@@ -44,7 +44,7 @@ class CoctailRecipeView: UIViewController, UITextFieldDelegate, CoctailManagerDe
    
         view.backgroundColor = UIColor(red: 94.12/100, green: 89.41/100, blue: 84.31/100, alpha: 1)
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Back", style: .plain, target: self, action: #selector(dismissSelf))
-        drinkLabel.anchor(top: view.topAnchor, leading: view.leadingAnchor, bottom: view.safeAreaLayoutGuide.bottomAnchor, trailing: view.trailingAnchor, padding: .init(top: 100, left: 10, bottom: 700, right: 10))
+        drinkLabel.anchor(top: view.topAnchor, leading: view.leadingAnchor, bottom: glassLabel.topAnchor, trailing: view.trailingAnchor, padding: .init(top: 100, left: 10, bottom: 20, right: 10))
         
         glassLabel.anchor(top: drinkLabel.bottomAnchor, leading: view.leadingAnchor, bottom: view.bottomAnchor, trailing: view.trailingAnchor, padding: .init(top: 20, left: 50, bottom: 695, right: 50))
         
