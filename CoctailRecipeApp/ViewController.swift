@@ -39,7 +39,8 @@ class ViewController: UIViewController, UIScrollViewDelegate, UITextFieldDelegat
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(notification:)), name: UIResponder.keyboardDidShowNotification, object: nil)
         
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(notification:)), name: UIResponder.keyboardDidHideNotification, object: nil)
-        
+      
+//        self.dismissKeyBoard()
  
         //sets delegate
         coctailManager.delegate = self
@@ -84,7 +85,7 @@ class ViewController: UIViewController, UIScrollViewDelegate, UITextFieldDelegat
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewDidLoad()
-        self.dismissKeyBoard()
+        
         
         topLayout()
      
@@ -110,7 +111,8 @@ class ViewController: UIViewController, UIScrollViewDelegate, UITextFieldDelegat
        
 
         let drink = searchTextField.text
-        let coctail = drink!.replacingOccurrences(of: " ", with: "%20")
+        
+        let coctail = drink!.trimmingCharacters(in: .whitespaces).replacingOccurrences(of: " ", with: "%20")
         print(coctail)
 
         coctailManager.getCoctail(coctailName: coctail)
@@ -118,10 +120,6 @@ class ViewController: UIViewController, UIScrollViewDelegate, UITextFieldDelegat
         searchTextField.text = ""
     }
     
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        searchTextField.endEditing(true)
-        return true 
-    }
   //adds elements to top half of view
     func topLayout() {
        
