@@ -35,12 +35,12 @@ class CoctailRecipeView: UIViewController, UITextFieldDelegate, CoctailManagerDe
         
         view.addSubview(ingredientView)
         ingredientView.addSubview(ingredientLabel)
-        ingredientView.backgroundColor = UIColor(red: 238/255, green: 235/255, blue: 211/255, alpha: 1)
-        
+//        ingredientView.backgroundColor = UIColor(red: 238/255, green: 235/255, blue: 211/255, alpha: 1)
+//        
         view.addSubview(measurementView)
         measurementView.addSubview(measurementLabel)
-        measurementView.backgroundColor = UIColor(red: 238/255, green: 235/255, blue: 211/255, alpha: 1)
-    
+//        measurementView.backgroundColor = UIColor(red: 238/255, green: 235/255, blue: 211/255, alpha: 1)
+//
    
         view.backgroundColor = UIColor(red: 94.12/100, green: 89.41/100, blue: 84.31/100, alpha: 1)
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Back", style: .plain, target: self, action: #selector(dismissSelf))

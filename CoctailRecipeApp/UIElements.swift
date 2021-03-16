@@ -94,6 +94,7 @@ struct UIElements {
         findButton.backgroundColor = UIColor(red: 255/255, green: 130/255, blue: 113/255, alpha: 0.2)
         findButton.setTitle("Search", for: .normal)
         findButton.titleLabel?.font = UIFont(name: "PingFang HK", size: 25)
+        findButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 25)
         findButton.setTitleColor(UIColor.black, for: .normal)
         findButton.layer.cornerRadius = 20
         findButton.translatesAutoresizingMaskIntoConstraints = false
@@ -116,9 +117,9 @@ struct UIElements {
     
     let directionLabel: UILabel = {
     let directionLabel = UILabel()
-        directionLabel.backgroundColor = UIColor(red: 238/255, green: 235/255, blue: 211/255, alpha: 1)
+//        directionLabel.backgroundColor = UIColor(red: 238/255, green: 235/255, blue: 211/255, alpha: 1)
         directionLabel.translatesAutoresizingMaskIntoConstraints = false
-        directionLabel.font = UIFont(name: "Arial", size: 25.0)
+        directionLabel.font = UIFont(name: "Arial", size: 20.0)
         directionLabel.lineBreakMode = .byWordWrapping
         directionLabel.numberOfLines = 0
         return directionLabel
@@ -127,18 +128,18 @@ struct UIElements {
     let glassLabel: UILabel = {
         let glassLabel = UILabel()
         glassLabel.backgroundColor = .clear
-        glassLabel.textAlignment = .center
+        glassLabel.textAlignment = .left
         glassLabel.translatesAutoresizingMaskIntoConstraints = false
-        glassLabel.font = UIFont(name: "TimesNewRoman", size: 15.0)
+        glassLabel.font = UIFont(name: "Arial", size: 25.0)
         return glassLabel
     }()
     
     let ingredientLabel: UILabel = {
         let ingredientLabel = UILabel()
         ingredientLabel.frame = CGRect(x: 50, y: 50, width: ingredientLabel.intrinsicContentSize.width, height: ingredientLabel.intrinsicContentSize.height)
-        ingredientLabel.backgroundColor = UIColor(red: 238/255, green: 235/255, blue: 211/255, alpha: 1)
+//        ingredientLabel.backgroundColor = UIColor(red: 238/255, green: 235/255, blue: 211/255, alpha: 1)
         ingredientLabel.translatesAutoresizingMaskIntoConstraints = false
-        ingredientLabel.font = UIFont(name: "Arial", size: 30)
+        ingredientLabel.font = UIFont(name: "Arial", size: 20)
         ingredientLabel.lineBreakMode = .byWordWrapping
         ingredientLabel.numberOfLines = 0
         ingredientLabel.sizeToFit()
@@ -149,9 +150,9 @@ struct UIElements {
     let measurementLabel: UILabel = {
         let measurementLabel = UILabel()
         measurementLabel.frame = CGRect(x: 50, y: 50, width: measurementLabel.intrinsicContentSize.width, height: measurementLabel.intrinsicContentSize.height)
-        measurementLabel.backgroundColor = UIColor(red: 238/255, green: 235/255, blue: 211/255, alpha: 1)
+       // measurementLabel.backgroundColor = UIColor(red: 238/255, green: 235/255, blue: 211/255, alpha: 1)
         measurementLabel.translatesAutoresizingMaskIntoConstraints = false
-        measurementLabel.font = UIFont(name: "Arial", size: 30)
+        measurementLabel.font = UIFont(name: "Arial", size: 20)
         measurementLabel.lineBreakMode = .byWordWrapping
         measurementLabel.numberOfLines = 0
         measurementLabel.sizeToFit()
