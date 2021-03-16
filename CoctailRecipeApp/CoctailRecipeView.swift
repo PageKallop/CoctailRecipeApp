@@ -52,7 +52,7 @@ class CoctailRecipeView: UIViewController, UITextFieldDelegate, CoctailManagerDe
         
         measurementView.anchor(top: glassLabel.bottomAnchor, leading: ingredientView.leadingAnchor, bottom: view.bottomAnchor, trailing: view.trailingAnchor, padding: .init(top: 20, left: 175, bottom: 400, right: 25))
        
-        directionLabel.anchor(top: measurementView.bottomAnchor, leading: view.leadingAnchor, bottom: view.bottomAnchor, trailing: view.trailingAnchor, padding: .init(top: 15, left: 25, bottom: 100, right: 10))
+        directionLabel.anchor(top: measurementView.bottomAnchor, leading: view.leadingAnchor, bottom: view.bottomAnchor, trailing: view.trailingAnchor, padding: .init(top: 15, left: 25, bottom: 100, right: 25))
         
     }
     

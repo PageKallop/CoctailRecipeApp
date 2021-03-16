@@ -38,7 +38,7 @@ class ViewController: UIViewController, UIScrollViewDelegate, UITextFieldDelegat
         
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(notification:)), name: UIResponder.keyboardDidShowNotification, object: nil)
         
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(notification:)), name: UIResponder.keyboardDidShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(notification:)), name: UIResponder.keyboardDidHideNotification, object: nil)
         
  
         //sets delegate
@@ -52,8 +52,10 @@ class ViewController: UIViewController, UIScrollViewDelegate, UITextFieldDelegat
         topLayout()
         bottomLayout()
         findButton.addTarget(self, action: #selector(findButtonAction(_ :)), for: .touchUpInside)
-
+        
+       
     }
+    //adjusts view to keyoboard
     @objc func keyboardWillShow(notification: NSNotification) {
         guard let userInfo = notification.userInfo else {return}
         guard let keyboardSize = userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue else {return}
@@ -64,17 +66,25 @@ class ViewController: UIViewController, UIScrollViewDelegate, UITextFieldDelegat
         
     }
     @objc func keyboardWillHide(notification: NSNotification) {
-        guard let userInfo = notification.userInfo else {return}
-        guard let keyboardSize = userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue else {return}
-        let keyboardFrame = keyboardSize.cgRectValue
+
         if self.view.frame.origin.y != 0 {
-            self.view.frame.origin.y = keyboardFrame.height
+            self.view.frame.origin.y = 0
         }
         
     }
     
+    func dismissKeyBoard(){
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(ViewController.dismissKeyboardTouchingOutside))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+    }
+    @objc private func dismissKeyboardTouchingOutside(){
+        view.endEditing(true)
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewDidLoad()
+        self.dismissKeyBoard()
         
         topLayout()
      
@@ -83,13 +93,7 @@ class ViewController: UIViewController, UIScrollViewDelegate, UITextFieldDelegat
     @objc func findButtonAction(_ sender: UIButton!) {
   
         searchTextField.endEditing(true)
-        
-//        let recipeVC = CoctailRecipeView()
-//        let navVC = UINavigationController(rootViewController: recipeVC)
-//        navVC.modalPresentationStyle = .fullScreen
-//        present(navVC, animated: true)
-   
-      
+  
     }
     
     //creates textfield methods to check text field and send information search quiery
@@ -104,16 +108,11 @@ class ViewController: UIViewController, UIScrollViewDelegate, UITextFieldDelegat
     
     func textFieldDidEndEditing(_ textField: UITextField) {
        
-//         let coctail = searchTextField.text
-        
+
         let drink = searchTextField.text
         let coctail = drink!.replacingOccurrences(of: " ", with: "%20")
         print(coctail)
-        
-        //trying to remove spaces
-        //let drink = searchTextField.text!
-        //let coctail = String(drink.filter { !" \n\t\r".contains($0)})
-        //
+
         coctailManager.getCoctail(coctailName: coctail)
 
         searchTextField.text = ""
