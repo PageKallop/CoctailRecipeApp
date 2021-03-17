@@ -72,7 +72,7 @@ class ViewController: UIViewController, UIScrollViewDelegate, UITextFieldDelegat
 //
     func dismissKeyBoard(){
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboardTouchingOutside))
-        tap.cancelsTouchesInView = false
+//        tap.cancelsTouchesInView = false
         view.addGestureRecognizer(tap)
     }
     @objc private func dismissKeyboardTouchingOutside(){
