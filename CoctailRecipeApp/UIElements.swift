@@ -13,30 +13,30 @@ struct UIElements {
     
     //ViewController UIElements
     let imageView: UIImageView = {
-    let imageView = UIImageView(image: #imageLiteral(resourceName: "shot"))
+    let imageView = UIImageView(image: #imageLiteral(resourceName: "flute"))
 //        imageView.frame = CGRect(x: 5, y: 5, width: 50, height: 50)
         
         imageView.contentMode = .scaleAspectFill
-        imageView.layer.cornerRadius = imageView.frame.size.height/5
+        imageView.layer.cornerRadius = imageView.frame.size.height/30
         imageView.clipsToBounds = true
         return imageView
         
     }()
     let imageView1: UIImageView = {
-        let imageView1 = UIImageView(image: #imageLiteral(resourceName: "shot"))
+        let imageView1 = UIImageView(image: #imageLiteral(resourceName: "coupe"))
 //        imageView1.frame = CGRect(x: 5, y: 5, width: 50, height: 50)
         imageView1.contentMode = .scaleAspectFill
-        imageView1.layer.cornerRadius = imageView1.frame.size.height/5
+        imageView1.layer.cornerRadius = imageView1.frame.size.height/30
         imageView1.clipsToBounds = true
         return imageView1
         
     }()
     let imageView2: UIImageView = {
-        let imageView2 = UIImageView(image: #imageLiteral(resourceName: "shot"))
-//        imageView2.frame = CGRect(x: 5, y: 5, width: 50, height: 50)
+        let imageView2 = UIImageView(image: #imageLiteral(resourceName: "wine"))
+        //imageView2.frame = CGRect(x: 5, y: 5, width: 50, height: 50)
         
         imageView2.contentMode = .scaleAspectFill
-        imageView2.layer.cornerRadius = imageView2.frame.size.height/5
+        imageView2.layer.cornerRadius = imageView2.frame.size.height/30
         imageView2.clipsToBounds = true
         return imageView2
         

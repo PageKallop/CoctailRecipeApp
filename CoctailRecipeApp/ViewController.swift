@@ -66,6 +66,7 @@ class ViewController: UIViewController, UIScrollViewDelegate, UITextFieldDelegat
         }
         
     }
+    //sets keyboard back
     @objc func keyboardWillHide(notification: NSNotification) {
 
         if self.view.frame.origin.y != 0 {
