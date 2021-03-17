@@ -76,7 +76,6 @@ struct UIElements {
     
     let searchTextField : UITextField = {
       let searchTextField = UITextField()
-        searchTextField.text = "margarita"
         searchTextField.placeholder = "Coctail?"
         searchTextField.borderStyle = .roundedRect
         searchTextField.translatesAutoresizingMaskIntoConstraints = false
@@ -130,13 +129,13 @@ struct UIElements {
         glassLabel.backgroundColor = .clear
         glassLabel.textAlignment = .left
         glassLabel.translatesAutoresizingMaskIntoConstraints = false
-        glassLabel.font = UIFont(name: "Arial", size: 25.0)
+        glassLabel.font = UIFont(name: "Arial", size: 20.0)
         return glassLabel
     }()
     
     let ingredientLabel: UILabel = {
         let ingredientLabel = UILabel()
-        ingredientLabel.frame = CGRect(x: 50, y: 50, width: ingredientLabel.intrinsicContentSize.width, height: ingredientLabel.intrinsicContentSize.height)
+        ingredientLabel.frame = CGRect(x: 0, y: 0, width: ingredientLabel.intrinsicContentSize.width, height: ingredientLabel.intrinsicContentSize.height)
 //        ingredientLabel.backgroundColor = UIColor(red: 238/255, green: 235/255, blue: 211/255, alpha: 1)
         ingredientLabel.translatesAutoresizingMaskIntoConstraints = false
         ingredientLabel.font = UIFont(name: "Arial", size: 20)
@@ -149,7 +148,7 @@ struct UIElements {
     
     let measurementLabel: UILabel = {
         let measurementLabel = UILabel()
-        measurementLabel.frame = CGRect(x: 50, y: 50, width: measurementLabel.intrinsicContentSize.width, height: measurementLabel.intrinsicContentSize.height)
+        measurementLabel.frame = CGRect(x: 0, y: 0, width: measurementLabel.intrinsicContentSize.width, height: measurementLabel.intrinsicContentSize.height)
        // measurementLabel.backgroundColor = UIColor(red: 238/255, green: 235/255, blue: 211/255, alpha: 1)
         measurementLabel.translatesAutoresizingMaskIntoConstraints = false
         measurementLabel.font = UIFont(name: "Arial", size: 20)

@@ -214,10 +214,10 @@ class ViewController: UIViewController, UIScrollViewDelegate, UITextFieldDelegat
 
             //sorts the data returned
             let list = coctailRecipe.ingredient.compactMap { $0 }
-            let ingredientList = list.map { "\($0)" }.joined(separator: "\n")
+            let ingredientList = list.map { "\($0)" }.joined(separator: "\n\n")
             
             let measurments = coctailRecipe.measurements.compactMap { $0 }
-            let measurmentList = measurments.map { "\($0)" }.joined(separator: "\n")
+            let measurmentList = measurments.map { "\($0)" }.joined(separator: "\n\n")
             
             //send data to coctail recipe vc
             recipeVC.ingredientLabel.text = ingredientList
