@@ -9,18 +9,7 @@ import UIKit
 
 
 class ViewController: UIViewController, UIScrollViewDelegate, UITextFieldDelegate, CoctailManagerDelegate {
-    
-    //creates stack view
-    lazy var stackView: UIStackView = {
-        let stackView = UIStackView()
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        stackView.axis = .horizontal
-        stackView.spacing = 15
-        stackView.alignment = .fill
-        stackView.distribution = .fillEqually
 
-            return stackView
-    }()
     
     var coctailManager = CoctailManager()
 
@@ -32,15 +21,17 @@ class ViewController: UIViewController, UIScrollViewDelegate, UITextFieldDelegat
     var findButton = UIElements().findButton
     var bar = UIElements().bar 
     var searchTextField = UIElements().searchTextField
+    var stackView = UIElements().stackView
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        //adjusts view for keyboard
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(notification:)), name: UIResponder.keyboardDidShowNotification, object: nil)
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(notification:)), name: UIResponder.keyboardDidHideNotification, object: nil)
+     
+        //sets keyboard back
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
       
-//        self.dismissKeyBoard()
+        self.dismissKeyBoard()
  
         //sets delegate
         coctailManager.delegate = self
@@ -48,10 +39,14 @@ class ViewController: UIViewController, UIScrollViewDelegate, UITextFieldDelegat
         searchTextField.delegate = self
         
         view.backgroundColor = UIColor.white
+      
         //adds textfield to view
         self.view.addSubview(searchTextField)
+        //adds layouts to view
         topLayout()
         bottomLayout()
+        
+        //sets up uibutton
         findButton.addTarget(self, action: #selector(findButtonAction(_ :)), for: .touchUpInside)
         
        
@@ -64,7 +59,7 @@ class ViewController: UIViewController, UIScrollViewDelegate, UITextFieldDelegat
         if self.view.frame.origin.y == 0 {
             self.view.frame.origin.y -= keyboardFrame.height
         }
-        
+
     }
     //sets keyboard back
     @objc func keyboardWillHide(notification: NSNotification) {
@@ -72,11 +67,11 @@ class ViewController: UIViewController, UIScrollViewDelegate, UITextFieldDelegat
         if self.view.frame.origin.y != 0 {
             self.view.frame.origin.y = 0
         }
-        
+
     }
-    
+//
     func dismissKeyBoard(){
-        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(ViewController.dismissKeyboardTouchingOutside))
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboardTouchingOutside))
         tap.cancelsTouchesInView = false
         view.addGestureRecognizer(tap)
     }
@@ -84,13 +79,6 @@ class ViewController: UIViewController, UIScrollViewDelegate, UITextFieldDelegat
         view.endEditing(true)
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewDidLoad()
-        
-        
-        topLayout()
-     
-    }
     //creates button functionality
     @objc func findButtonAction(_ sender: UIButton!) {
   
@@ -119,6 +107,13 @@ class ViewController: UIViewController, UIScrollViewDelegate, UITextFieldDelegat
         coctailManager.getCoctail(coctailName: coctail)
 
         searchTextField.text = ""
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+      
+        searchTextField.resignFirstResponder()
+        
+        return true
     }
     
   //adds elements to top half of view
