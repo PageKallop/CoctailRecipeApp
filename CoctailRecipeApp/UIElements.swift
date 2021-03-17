@@ -130,6 +130,9 @@ struct UIElements {
         glassLabel.textAlignment = .left
         glassLabel.translatesAutoresizingMaskIntoConstraints = false
         glassLabel.font = UIFont(name: "Arial", size: 20.0)
+//        let attributedString = NSMutableAttributedString.init(string: "Text on Label")
+//        attributedString.addAttribute(NSAttributedString.Key.underlineStyle, value: 1, range: NSRange.init(location: 0, length: attributedString.length))
+//        glassLabel.attributedText = attributedString
         return glassLabel
     }()
     
@@ -139,6 +142,9 @@ struct UIElements {
 //        ingredientLabel.backgroundColor = UIColor(red: 238/255, green: 235/255, blue: 211/255, alpha: 1)
         ingredientLabel.translatesAutoresizingMaskIntoConstraints = false
         ingredientLabel.font = UIFont(name: "Arial", size: 20)
+        let attributedString = NSMutableAttributedString.init(string: "Text on Label")
+        attributedString.addAttribute(NSAttributedString.Key.underlineStyle, value: 1, range: NSRange.init(location: 0, length: attributedString.length))
+        ingredientLabel.attributedText = attributedString
         ingredientLabel.lineBreakMode = .byWordWrapping
         ingredientLabel.numberOfLines = 0
         ingredientLabel.sizeToFit()
@@ -152,6 +158,9 @@ struct UIElements {
        // measurementLabel.backgroundColor = UIColor(red: 238/255, green: 235/255, blue: 211/255, alpha: 1)
         measurementLabel.translatesAutoresizingMaskIntoConstraints = false
         measurementLabel.font = UIFont(name: "Arial", size: 20)
+        let attributedString = NSMutableAttributedString.init(string: "Text on Label")
+        attributedString.addAttribute(NSAttributedString.Key.underlineStyle, value: 1, range: NSRange.init(location: 0, length: attributedString.length))
+        measurementLabel.attributedText = attributedString
         measurementLabel.lineBreakMode = .byWordWrapping
         measurementLabel.numberOfLines = 0
         measurementLabel.sizeToFit()

@@ -209,7 +209,7 @@ class ViewController: UIViewController, UIScrollViewDelegate, UITextFieldDelegat
             self.present(navVC, animated: true)
             //send data to coctail recipe vc
             recipeVC.drinkLabel.text = coctailRecipe.coctailName
-            recipeVC.glassLabel.text = coctailRecipe.glassType
+            recipeVC.glassLabel.text = "- \(coctailRecipe.glassType ?? "glass")"
             recipeVC.directionLabel.text = coctailRecipe.instructions
 
             //sorts the data returned
