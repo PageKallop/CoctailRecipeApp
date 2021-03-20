@@ -14,8 +14,6 @@ struct UIElements {
     //ViewController UIElements
     let imageView: UIImageView = {
     let imageView = UIImageView(image: #imageLiteral(resourceName: "flute"))
-//        imageView.frame = CGRect(x: 5, y: 5, width: 50, height: 50)
-        
         imageView.contentMode = .scaleAspectFill
         imageView.layer.cornerRadius = imageView.frame.size.height/30
         imageView.clipsToBounds = true
@@ -24,7 +22,6 @@ struct UIElements {
     }()
     let imageView1: UIImageView = {
         let imageView1 = UIImageView(image: #imageLiteral(resourceName: "coupe"))
-//        imageView1.frame = CGRect(x: 5, y: 5, width: 50, height: 50)
         imageView1.contentMode = .scaleAspectFill
         imageView1.layer.cornerRadius = imageView1.frame.size.height/30
         imageView1.clipsToBounds = true
@@ -33,8 +30,6 @@ struct UIElements {
     }()
     let imageView2: UIImageView = {
         let imageView2 = UIImageView(image: #imageLiteral(resourceName: "wine"))
-        //imageView2.frame = CGRect(x: 5, y: 5, width: 50, height: 50)
-        
         imageView2.contentMode = .scaleAspectFill
         imageView2.layer.cornerRadius = imageView2.frame.size.height/30
         imageView2.clipsToBounds = true
@@ -81,7 +76,8 @@ struct UIElements {
         searchTextField.rightView = paddingView
         searchTextField.leftViewMode = UITextField.ViewMode.always
         searchTextField.rightViewMode = UITextField.ViewMode.always
-        searchTextField.backgroundColor = UIColor(red: 255/255, green: 130/255, blue: 113/255, alpha: 0.2)
+//        searchTextField.backgroundColor = UIColor(red: 255/255, green: 130/255, blue: 113/255, alpha: 0.2)
+        searchTextField.backgroundColor = .white
         return searchTextField
     }()
     
