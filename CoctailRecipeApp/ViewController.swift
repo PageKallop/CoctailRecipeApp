@@ -100,7 +100,7 @@ class ViewController: UIViewController, UIScrollViewDelegate, UITextFieldDelegat
        
 
         let drink = searchTextField.text
-        
+        //removes spaces from search 
         let coctail = drink!.trimmingCharacters(in: .whitespaces).replacingOccurrences(of: " ", with: "%20")
         print(coctail)
 

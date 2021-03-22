@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CoctailRecipeView: UIViewController, UITextFieldDelegate, CoctailManagerDelegate {
+class CoctailRecipeView: UIViewController, UITextFieldDelegate{
 
     //UIElements from library 
     var coctailManager = CoctailManager()
@@ -25,7 +25,7 @@ class CoctailRecipeView: UIViewController, UITextFieldDelegate, CoctailManagerDe
         let ingredientView = UIView()
         
 
-        coctailManager.delegate = self
+       
         navigationController?.navigationBar.barTintColor = UIColor(red: 94.12/100, green: 89.41/100, blue: 84.31/100, alpha: 1)
         
         view.addSubview(drinkLabel)
@@ -64,14 +64,6 @@ class CoctailRecipeView: UIViewController, UITextFieldDelegate, CoctailManagerDe
     }
     
     
-    func didLoadRecipe(_ coctailManager: CoctailManager, coctailRecipe: CoctailModel) {
-
-        
-    }
-
-    func didFailWithError(error: Error) {
-        print(error)
-    }
 
 }
 
@@ -79,7 +71,6 @@ extension UIView {
     
     func anchor(top: NSLayoutYAxisAnchor, leading: NSLayoutXAxisAnchor, bottom: NSLayoutYAxisAnchor, trailing: NSLayoutXAxisAnchor, padding: UIEdgeInsets = .zero) {
         translatesAutoresizingMaskIntoConstraints = false
-
         topAnchor.constraint(equalTo: top, constant: padding.top).isActive = true
         leadingAnchor.constraint(equalTo: leading, constant: padding.left).isActive = true
         bottomAnchor.constraint(equalTo: bottom, constant: -padding.bottom).isActive = true

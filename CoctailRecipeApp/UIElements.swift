@@ -76,8 +76,7 @@ struct UIElements {
         searchTextField.rightView = paddingView
         searchTextField.leftViewMode = UITextField.ViewMode.always
         searchTextField.rightViewMode = UITextField.ViewMode.always
-//        searchTextField.backgroundColor = UIColor(red: 255/255, green: 130/255, blue: 113/255, alpha: 0.2)
-        searchTextField.backgroundColor = .white
+        searchTextField.backgroundColor = UIColor(red: 255/255, green: 130/255, blue: 113/255, alpha: 0.2)
         return searchTextField
     }()
     
